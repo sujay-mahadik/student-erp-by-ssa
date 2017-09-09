@@ -1,0 +1,84 @@
+<?php
+$servername = "localhost";
+$username = "admin";
+$password = "password";
+$dbname = "erp";
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+	die("Connection failed: " . $conn->connect_error);
+}
+$id=$_POST["uname"];
+$password=SHA1($_POST["upass"]);
+
+$sql = "SELECT * FROM admin where id='$id' and password='$password'";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+	session_start();
+	$_SESSION['aai'] = 1;
+	$_SESSION['id']=$id;
+	$row = mysqli_fetch_array($result);
+	$_SESSION['username']=$row['fname'];
+	header("Location: admin-index.php");
+}
+else {
+	$sql = "SELECT * FROM erp.* where userid='$id' and password='$password'";
+	$result = $conn->query($sql);
+	if ($result->num_rows > 0) {
+		session_start();
+		$_SESSION['id']=$id;
+		$_SESSION['asi'] = 1;
+		$row = mysqli_fetch_array($result);
+		$_SESSION['username']=$row['fname']." ".$row['mname']." ".$row['lname'];
+		header("Location: student-index.php");
+	}
+	else {
+		$sql = "SELECT * FROM fecomp where userid='$id' and password='$password'";
+		$result = $conn->query($sql);
+		if ($result->num_rows > 0) {
+			session_start();
+			$_SESSION['id']=$id;
+			$_SESSION['asi'] = 1;
+			$row = mysqli_fetch_array($result);
+			$_SESSION['username']=$row['fname']." ".$row['mname']." ".$row['lname'];
+			header("Location: student-index.php");
+		}
+		else{
+			$sql = "SELECT * FROM feit where userid='$id' and password='$password'";
+			$result = $conn->query($sql);
+			if ($result->num_rows > 0) {
+				session_start();
+				$_SESSION['id']=$id;
+				$_SESSION['asi'] = 1;
+				$row = mysqli_fetch_array($result);
+				$_SESSION['username']=$row['fname']." ".$row['mname']." ".$row['lname'];
+				header("Location: student-index.php");
+			}
+			else{
+				$sql = "SELECT * FROM teacher where id='$id' and password='$password'";
+				$result = $conn->query($sql);
+				if ($result->num_rows > 0) {
+					session_start();
+					$_SESSION['ati'] = 1;
+					$_SESSION['id']=$id;
+					$row = mysqli_fetch_array($result);
+					$_SESSION['username']=$row['fname'];
+					$sql = "SELECT * FROM users ";
+					$result = $conn->query($sql);
+					$_SESSION['users']=$result->num_rows;
+					header("Location: teacher-index.php");
+				}
+				else{
+					session_start();
+					$_SESSION['login-error'] = '*invalid details';
+					header("Location: login-index.php");
+				}
+
+			}
+		}
+
+
+
+	}
+}
+$conn->close();
+?>

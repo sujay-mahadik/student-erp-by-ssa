@@ -1,0 +1,202 @@
+@font-face {
+    font-family: marketdeco;
+    src: url(../fonts/marketdeco.ttf);
+}
+
+@font-face {
+    font-family: robotolight;
+    src: url(../fonts/robotolight.ttf);
+}
+
+@font-face {
+    font-family: robotomedium;
+    src: url(../fonts/robotomedium.ttf);
+}
+
+body,
+html {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+.bg {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../images/mitcoe-bg.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+div.topnav {
+    margin: 0 auto;
+    width: 85%;
+    text-align: center;
+}
+
+div.topnav a {
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    float: left;
+    padding: 14px 16px;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    font-family: robotolight;
+}
+
+div.topnav a.developedby {
+    float: right;
+}
+
+div.pullUp a:before {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    left: 0px;
+    bottom: 0px;
+    content: '';
+    background: #FFF;
+    opacity: 0.3;
+    transition: all 0.3s;
+}
+
+div.pullUp a:hover:before {
+    height: 100%;
+}
+
+div.pullUp a.active:before {
+    height: 100%;
+}
+
+.logincard,
+.logincard-bck {
+    height: 350px;
+    width: 350px;
+    border-radius: 4px;
+    top: 50%;
+    left: 90%;
+    position: absolute;
+    transform: translate(-90%, -50%);
+}
+
+.logincard-bck {
+    background-color: white;
+    border-bottom: 12px solid sienna;
+    opacity: .8;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.35);
+}
+
+input[type=text],
+input[type=password] {
+    color: black;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background-color: transparent;
+    outline: none;
+    background-size: 43px;
+    background-position: 2px;
+    background-repeat: no-repeat;
+    padding-left: 48px;
+    font-size: 18px;
+    border: 0;
+    outline: 0;
+    border-bottom: 4px solid #01354f;
+    font-family: robotomedium;
+}
+
+input[type=text] {
+  margin-top: 25px;
+  background-image: url("../images/username.png");
+}
+
+input[type=password] {
+    background-image: url("../images/key.png");
+}
+
+.container-input-fields {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+.container-login-title {
+    font-family: marketdeco;
+    font-size: 45px;
+    color: #02608e;
+    padding: 5px;
+    padding-left: 20px;
+    margin-top: 25px;
+    margin-bottom: 5px;
+    border-left: 10px solid #02608e;
+}
+
+.login-error{
+    font-family: robotomedium;
+    color: red;
+    font-size: 15px;
+    float: right;
+
+}
+
+button {
+    text-align: center;
+    float: right;
+    font-family: marketdeco;
+    font-size: 25px;
+    border: 4px solid grey;
+    background-color: transparent;
+    color: grey;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    transition: .3s ease;
+    margin-top: 20px;
+}
+
+button:hover {
+    border: 4px solid #78a538;
+    color: #78a538;
+    background-color: whitesmoke;
+    box-shadow: 0 0 10px #78a538;
+}
+
+.footer {
+    color: white;
+    opacity: .8;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    height: 30px;
+    width: 100%;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.footer:hover {
+    animation: myfirst 2s infinite ease;
+}
+
+@keyframes myfirst {
+    0% {
+        color: red;
+    }
+    25% {
+        color: blue;
+    }
+    50% {
+        color: red;
+    }
+    100% {
+        color: blue;
+    }
+}
