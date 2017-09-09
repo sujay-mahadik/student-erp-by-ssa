@@ -63,7 +63,7 @@ else {
     </div>
     <div id="Add" class="tabcontent">
 
-     <form action="add-student-php.php" method="post">
+     <form action="add-teacher-php.php" method="post">
       <ul class="form-style">
         <li><label>Full Name <span class="required">*</span></label>
           <input type="text" name="firstname" class="field-divided" placeholder="First" required="required" >
@@ -78,29 +78,7 @@ else {
           <!-- <input type="text" name="uid" class="field-divided" placeholder="Roll Number" /> -->
           <input type="text" name="upass" class="field-divided" placeholder="Password" required="required">
         </li>
-        <li>
-          <label>Academic Details <span class="required">*</span></label>
-          <select name="year" class="field-select-divided dropdown-button" required="required">
-            <option value="">--select year--</option>
-            <option value="fe">FE</option>
-            <option value="se">SE</option>
-            <option value="te">TE</option>
-          </select>
-          <select name="dept" class="field-select-divided dropdown-button" required="required">
-            <option value="">--select department--</option>
-            <option value="civil">Civil</option>
-            <option value="computer">Computer</option>
-            <option value="it">IT</option>
-            <option value="entc">ENTC</option>
-            <option value="mechanical">Mechanical</option>
-          </select>
-          <!-- <select name="pattern" class="field-select-divided dropdown-button">
-            <option value="">--select pattern--</option>
-            <option value="12">FE2012 Pattern</option>
-            <option value="14">FE2014 Pattern</option>
-            <option value="15">FE2015 Pattern</option>
-          </select> -->
-        </li>
+
         <li><label>Date of Birth</label>
           <select name="dobday">
             <option> - day - </option>

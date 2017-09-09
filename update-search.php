@@ -27,10 +27,14 @@ if ($table_found_result->num_rows > 0) {
 	$_SESSION['uyear']=$row['year'];
 	$_SESSION['udept']=$row['dept'];
 	$_SESSION['uimage']=$row['image'];
-
+	$_SESSION['found']="visible";
 	$_SESSION['searched']="1";
-	header("Location: update-student.php");
-	
+	unset($_SESSION['add']);
+  	unset($_SESSION['update']);
+  	unset($_SESSION['delete']);
+  	$_SESSION['update']="defaultOpen";
+	header("Location: tab-student.php");
+
 }
 else{
 	session_start();

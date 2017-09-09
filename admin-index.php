@@ -16,7 +16,7 @@ while ($row = mysqli_fetch_array($result)) {
   $scount=$scount+$search_count;
 }
 $_SESSION['scount']=$scount;
-
+$_SESSION['found']="hidden";
 $tcount_q= $conn->query("SELECT * FROM teacher");
 $tcount=$tcount_q->num_rows;
 
@@ -76,7 +76,7 @@ $tcount=$tcount_q->num_rows;
             <?php
             if(isset($_GET['newteacher'])) {
               $_SESSION['newteacher'] = 1;
-              header("Location: add-new-teacher.php ");
+              header("Location: tab-teacher.php ");
               unset($_GET['teacher']);
             }
             ?>

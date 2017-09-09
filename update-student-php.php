@@ -17,8 +17,9 @@ if ($conn->query($sql) === TRUE) {
 	echo "successfully ";
 	$_SESSION['updated']= "Update successful of USER ID : ".$_SESSION['uuserid'];
 	$_SESSION['update']=1;
+    $_SESSION['found']="hidden";
 	header("Location: tab-student.php");
-	
+
 } else {
 	echo "Error: " . $sql . "<br>" . $conn->error;
 }
