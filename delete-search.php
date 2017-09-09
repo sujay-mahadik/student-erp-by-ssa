@@ -1,7 +1,7 @@
 <?php
 include_once 'includes/db_connect.php';
 $id=$_POST["uname"];
-
+$_SESSION['showdelete']=0;
 $result = $conn->query("SHOW TABLES from erp LIKE '%db'");
 $tables="";
 $i=0;
@@ -27,15 +27,16 @@ if ($table_found_result->num_rows > 0) {
 	$_SESSION['dyear']=$row['year'];
 	$_SESSION['ddept']=$row['dept'];
 	$_SESSION['dimage']=$row['image'];
-
 	$_SESSION['searched']="1";
-	header("Location: delete-student.php");
-	
+	$_SESSION['delete']='1';
+	$_SESSION['showdelete']='1';
+	header("Location: tab-student.php");
 }
 else{
 	session_start();
 	$_SESSION['search-error'] = '*User ID not fount';
-	$_SESSION['delete']=1;
+	$_SESSION['delete']='1';
+	$_SESSION['showdelete']='0';
 	header("Location: tab-student.php");
 }
 ?>
