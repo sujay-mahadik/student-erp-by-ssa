@@ -34,7 +34,7 @@ if ($table_found_result->num_rows > 0) {
 }
 else{
 	session_start();
-	$_SESSION['search-error'] = '*User ID not fount';
+	$_SESSION['search-errord'] = '*User ID not fount';
 	$_SESSION['delete']='1';
 	$_SESSION['showdelete']='0';
 	header("Location: tab-student.php");

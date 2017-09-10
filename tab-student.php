@@ -389,9 +389,9 @@ else {
             unset($_SESSION['searched']);
           }
           ?>
-          <?php  if (isset($_SESSION['search-error']))
+          <?php  if (isset($_SESSION['search-errord']))
           {
-            echo $_SESSION['search-error'];
+            echo $_SESSION['search-errord'];
           } ?>
         </div>
       </li>
@@ -461,10 +461,14 @@ else {
   </div>
 </div>
 </div>
-<?php unset($_SESSION['search-error']);
+<?php 
+unset($_SESSION['search-error']);
+unset($_SESSION['search-errord']);
 unset($_SESSION['add']);
 unset($_SESSION['update']);
 unset($_SESSION['delete']);
+unset($_SESSION['showdelete']);
+unset($_SESSION['showupdate']);
 ?>
 <div class="footer">
   <p> Copyright 2017. All Rights Reserved. Developed by SSA</p>
@@ -501,5 +505,9 @@ unset($_SESSION['delete']);
     deleteform.style.display = 'none';
   }
 </script>
+<?php 
+$showupdate ='0';
+$showdelete ='0';
+?>
 </body>
 </html>
