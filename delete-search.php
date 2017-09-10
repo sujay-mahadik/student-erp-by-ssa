@@ -27,15 +27,20 @@ if ($table_found_result->num_rows > 0) {
 	$_SESSION['dyear']=$row['year'];
 	$_SESSION['ddept']=$row['dept'];
 	$_SESSION['dimage']=$row['image'];
-
+	$_SESSION['found']="visible";
 	$_SESSION['searched']="1";
-	header("Location: delete-student.php");
-	
+	unset($_SESSION['add']);
+    unset($_SESSION['update']);
+    unset($_SESSION['delete']);
+    $_SESSION['delete']="defaultOpen";
+	header("Location: tab-student.php");
+
 }
 else{
 	session_start();
 	$_SESSION['search-error'] = '*User ID not fount';
 	$_SESSION['delete']=1;
+	$_SESSION['found']="hidden";
 	header("Location: tab-student.php");
 }
 ?>

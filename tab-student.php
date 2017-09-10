@@ -399,7 +399,29 @@ else {
 
     </li>
   </ul>
+
 </form>
+<br>
+<br>
+<br>
+
+<div class="tab-content"  style="visibility: <?php echo $_SESSION['found'];?>;font-weight: bold">
+      <form action="delete-student-php.php" method="post">
+      <ul class="form-style">
+        <?php
+
+        echo 'Name: ' . $_SESSION['dfname'] ." ". $_SESSION['dmname'] ." ". $_SESSION['dlname'] . '<br/>'."\n";
+
+        ?>
+
+        <br>
+
+      <div class="submit">
+        <button  type="submit">Delete</button>
+      </div>
+      </ul>
+    </form>
+</div>
 </div>
 <div id="View" class="tabcontent">
   <div>

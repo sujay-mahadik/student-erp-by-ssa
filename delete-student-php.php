@@ -10,6 +10,7 @@ if ($conn->query($sql) === TRUE) {
 	echo "successfully ";
 	$_SESSION['deleted']= "Deleted successful of USER ID : ".$_SESSION['duserid'];
 	$_SESSION['delete']=1;
+    $_SESSION['found']="hidden";
 	header("Location: tab-student.php");
 } else {
 	echo "Error: " . $sql . "<br>" . $conn->error;

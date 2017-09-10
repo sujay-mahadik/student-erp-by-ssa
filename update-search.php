@@ -40,6 +40,8 @@ else{
 	session_start();
 	$_SESSION['search-error'] = '*User ID not fount';
 	$_SESSION['update']=1;
+	$_SESSION['found']="hidden";
+
 	header("Location: tab-student.php");
 }
 ?>
