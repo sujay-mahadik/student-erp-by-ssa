@@ -47,11 +47,12 @@ $dimage=$_SESSION['dimage'];
 
         ?>
 
-      </div>
-      <div class="submit">
-        <button  type="submit">Delete</button>
-      </div>
-    </form>
+        
+        <div class="submit">
+          <button  type="submit">Delete</button>
+        </div>
+      </form>
+    </div>
 
 
     <div class="footer">
