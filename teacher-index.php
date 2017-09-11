@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 if (!isset($_SESSION['ati']))
     header("Location: login-index.php");
 ?>
@@ -63,6 +64,7 @@ if (!isset($_SESSION['ati']))
         </div>
     </form>
 </div>
+<?php unset($_SESSION['loggedin']); ?>
 <div class="footer">
     <p> Copyright 2017. All Rights Reserved. Developed by SSA</p>
 </div>

@@ -36,6 +36,12 @@ else {
 </head>
 <body class="bg">
   <div class="topnav pullUp">
+    <a href="?adminhome">Home</a>
+    <?php
+    if(isset($_GET['adminhome'])) {
+      header("Location: admin-index.php");
+    }
+    ?>
     <a href="?logout">Logout</a>
     <?php
     if(isset($_GET['logout'])) {

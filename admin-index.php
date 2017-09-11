@@ -1,14 +1,12 @@
 <?php
 include_once 'includes/db_connect.php';
-
 session_start();
+
 if (!isset($_SESSION['aai']))
   {header("Location: login-index.php");
 }
-
 $result = $conn->query("SHOW TABLES from erp LIKE '%db'");
 $scount=0;
-
 while ($row = mysqli_fetch_array($result)) {
   $tables = $row[0];
   $search_result = $conn->query("SELECT * FROM `{$tables}`");
@@ -16,10 +14,8 @@ while ($row = mysqli_fetch_array($result)) {
   $scount=$scount+$search_count;
 }
 $_SESSION['scount']=$scount;
-
 $tcount_q= $conn->query("SELECT * FROM teacher");
 $tcount=$tcount_q->num_rows;
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -27,10 +23,10 @@ $tcount=$tcount_q->num_rows;
   <link rel="stylesheet" href="css/admin-index.css">
   <link rel="shortcut icon" href="images/sis-favicon.ico" type="image/x-icon">
   <title>Welcome Admin</title>
-
 </head>
 <body class="bg">
   <div class="topnav pullUp">
+
     <a href="?logout">Logout</a>
     <?php
     if(isset($_GET['logout'])) {
@@ -52,6 +48,10 @@ $tcount=$tcount_q->num_rows;
     </div>
     <div class="container-tabs">
       <div class="tabs">
+        <div class="tabinfo">
+          Name:
+
+        </div>
       </div>
       <div class="tabs">
         <div class="tabs">
@@ -76,7 +76,7 @@ $tcount=$tcount_q->num_rows;
             <?php
             if(isset($_GET['newteacher'])) {
               $_SESSION['newteacher'] = 1;
-              header("Location: add-new-teacher.php ");
+              header("Location: tab-teacher.php ");
               unset($_GET['teacher']);
             }
             ?>
