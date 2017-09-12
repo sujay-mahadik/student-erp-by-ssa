@@ -1,4 +1,8 @@
-<?php session_start(); ?>
+<?php session_start(); 
+if (!isset($_SESSION['loggedin'])){
+  session_unset();
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>

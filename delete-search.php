@@ -23,6 +23,7 @@ if ($table_found_result->num_rows > 0) {
 	$_SESSION['dfname']=$row['fname'];
 	$_SESSION['dmname']=$row['mname'];
 	$_SESSION['dlname']=$row['lname'];
+	$_SESSION['daddress']=$row['address'];
 	$_SESSION['demail']=$row['email'];
 	$_SESSION['dyear']=$row['year'];
 	$_SESSION['ddept']=$row['dept'];

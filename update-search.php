@@ -24,6 +24,7 @@ if ($table_found_result->num_rows > 0) {
 	$_SESSION['umname']=$row['mname'];
 	$_SESSION['ulname']=$row['lname'];
 	$_SESSION['uemail']=$row['email'];
+	$_SESSION['uaddress']=$row['address'];
 	$_SESSION['uyear']=$row['year'];
 	$_SESSION['udept']=$row['dept'];
 	$_SESSION['uimage']=$row['image'];
