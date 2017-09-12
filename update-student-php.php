@@ -12,7 +12,7 @@ $table=$_SESSION['utable_found'];
 $userid=$_SESSION['uuserid'];
 $table=$_SESSION['utable_found'];
 
-$sql = "UPDATE `{$table}` SET fname= '$fname' WHERE userid='$userid'"  ;
+$sql = "UPDATE `{$table}` SET fname= '$fname',lname='$lname',mname='$mname',email='$email' WHERE userid='$userid'"  ;
 if ($conn->query($sql) === TRUE) {
 	echo "successfully ";
 	$_SESSION['updated']= "Update successful of USER ID : ".$_SESSION['uuserid'];

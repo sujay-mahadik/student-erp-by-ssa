@@ -26,6 +26,9 @@ else {
    unset($_SESSION['update']);
    unset($_SESSION['delete']);
    $_SESSION['add']="defaultOpen";
+   $_SESSION['found']="hidden";
+   $_SESSION['foundd']="hidden";
+
 # code...
  }
 }
@@ -250,7 +253,7 @@ else {
           </li>
           <li>
             <label>Email <span class="required">*</span></label>
-            <input type="email" value="<?php echo "$uemail"; ?>" name="uemail" class="field-long" />
+            <input type="email" value="<?php echo $_SESSION['uemail']; ?>" name="uemail" class="field-long" />
           </li>
 
          <!-- <li>
@@ -392,7 +395,7 @@ else {
 
          <?php  if (isset($_SESSION['search-error']))
          {
-          echo $_SESSION['search-error'];
+          echo $_SESSION['search-errord'];
 
         } ?>
       </div>
@@ -405,7 +408,7 @@ else {
 <br>
 <br>
 
-<div class="tab-content"  style="visibility: <?php echo $_SESSION['found'];?>;font-weight: bold">
+<div class="tab-content"  style="visibility: <?php echo $_SESSION['foundd'];?>;font-weight: bold">
       <form action="delete-student-php.php" method="post">
       <ul class="form-style">
         <?php
@@ -472,6 +475,7 @@ unset($_SESSION['delete']);
 <script type="text/javascript">
   function opentab(event, tabname) {
     var i, tabcontent, tablinks;
+
     tabcontent = document.getElementsByClassName("tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
       tabcontent[i].style.display = "none";
@@ -482,6 +486,7 @@ unset($_SESSION['delete']);
     }
     document.getElementById(tabname).style.display = "block";
     event.currentTarget.className += " active";
+
   }
   document.getElementById("defaultOpen").click();
 </script>

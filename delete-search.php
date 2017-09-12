@@ -27,7 +27,7 @@ if ($table_found_result->num_rows > 0) {
 	$_SESSION['dyear']=$row['year'];
 	$_SESSION['ddept']=$row['dept'];
 	$_SESSION['dimage']=$row['image'];
-	$_SESSION['found']="visible";
+	$_SESSION['foundd']="visible";
 	$_SESSION['searched']="1";
 	unset($_SESSION['add']);
     unset($_SESSION['update']);
@@ -38,9 +38,9 @@ if ($table_found_result->num_rows > 0) {
 }
 else{
 	session_start();
-	$_SESSION['search-error'] = '*User ID not fount';
+	$_SESSION['search-errord'] = '*User ID not fount';
 	$_SESSION['delete']=1;
-	$_SESSION['found']="hidden";
+	$_SESSION['foundd']="hidden";
 	header("Location: tab-student.php");
 }
 ?>

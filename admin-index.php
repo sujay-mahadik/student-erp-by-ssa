@@ -17,6 +17,7 @@ while ($row = mysqli_fetch_array($result)) {
 }
 $_SESSION['scount']=$scount;
 $_SESSION['found']="hidden";
+$_SESSION['foundd']="hidden";
 $tcount_q= $conn->query("SELECT * FROM teacher");
 $tcount=$tcount_q->num_rows;
 

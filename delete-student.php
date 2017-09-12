@@ -39,20 +39,20 @@ $dimage=$_SESSION['dimage'];
   </div>
   <div class="admincard">
     <div class="ctitle ">Details:<?php echo "$duserid"; ?> </div>
-    <div class="tab-content"> 
+    <div class="tab-content">
       <form action="delete-student-php.php" method="post">
-        <?php  
+        <?php
 
         echo 'Name: ' . $_SESSION['dfname'] ." ". $_SESSION['dmname'] ." ". $_SESSION['dlname'] . '<br/>'."\n";
 
         ?>
 
-      </div>
+
       <div class="submit">
         <button  type="submit">Delete</button>
       </div>
     </form>
-
+</div>
 
     <div class="footer">
       <p> Copyright 2017. All Rights Reserved. Developed by SSA</p>
