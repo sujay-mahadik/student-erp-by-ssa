@@ -148,3 +148,5 @@ $row = mysqli_fetch_array($table_found_result);
 $_SESSION['username']=$row['fname']." ".$row['mname']." ".$row['lname'];
 header("Location: student-index.php");
 }
+
+check fork
