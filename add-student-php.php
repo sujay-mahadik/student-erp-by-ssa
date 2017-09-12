@@ -50,8 +50,7 @@ else{
 $table = $cyear.$dept."db";
 
 $newtable = "CREATE TABLE If NOT EXISTS `{$table}` (
-`id` int(11) AUTO_INCREMENT PRIMARY KEY,
-`userid` int(11) NOT NULL,
+`userid` int(11) AUTO_INCREMENT PRIMARY KEY,
 `password` varchar(40) NOT NULL,
 `fname` varchar(50) NOT NULL,
 `mname` varchar(50) NOT NULL,
@@ -63,18 +62,20 @@ $newtable = "CREATE TABLE If NOT EXISTS `{$table}` (
 `image` varchar(1024)
 )";
 
-if($conn->query($newtable) === TRUE){
-	echo "table create or present";
+if($conn->query($newtable)===TRUE){
+	$start=$cyear.$deptid."001";
+
+	$startset="alter table `{$table}` AUTO_INCREMENT=".$start."";
+	$conn->query($startset);
 }
 
-$maxidsql = mysqli_query($conn, "SELECT MAX(id) AS maxid FROM `{$table}`");
-$row = mysqli_fetch_assoc($maxidsql);
-$maxid = $row['maxid']+"1";
-$maxid_padded = sprintf("%03d", $maxid);
-$sql = "INSERT INTO `{$table}` (userid,password,fname,mname,lname,address,email,year,dept) VALUES (concat('$cyear','$deptid','$maxid_padded'),'$password','$fname','$mname','$lname','$address','$email','$year','$dept')";
+$sql = "INSERT INTO `{$table}` (password,fname,mname,lname,address,email,year,dept) VALUES ('$password','$fname','$mname','$lname','$address','$email','$year','$dept')";
+
 if ($conn->query($sql) === TRUE) {
-	echo "New record created successfully at $cyear$deptid$maxid_padded";
-	$_SESSION['added']="Student added with USER id ".$cyear.$deptid.$maxid_padded." and default password 12345678";
+	$maxuseridsql = mysqli_query($conn, "SELECT MAX(userid) AS maxuserid FROM `{$table}`");
+	$row = mysqli_fetch_assoc($maxuseridsql);
+	$maxuserid = $row['maxuserid'];
+	$_SESSION['added']="Student added with USER ID :".$maxuserid." default password 12345678";
 	$_SESSION['add']=1;
 	header("Location: tab-student.php");
 } else {
