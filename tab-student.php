@@ -72,14 +72,15 @@ else {
             <input type="text" name="middlename" class="field-divided" placeholder="Middle"  >
             <input type="text" name="lastname" class="field-divided" placeholder="Last"  >
           </li>
+          <li><label>Residential address<span class="required">*</span></label>
+            <!-- <input type="text" name="uid" class="field-divided" placeholder="Roll Number" /> -->
+            <input type="text" name="address" class="field-long" placeholder="Address along with pincode" required="required">
+          </li>
           <li>
             <label>Email <span class="required">*</span></label>
             <input type="email" placeholder="Email Address" name="email" class="field-long" required="required">
           </li>
-          <li><label>Roll No and Password (for student information system) <span class="required">*</span></label>
-            <!-- <input type="text" name="uid" class="field-divided" placeholder="Roll Number" /> -->
-            <input type="text" name="upass" class="field-divided" placeholder="Password" required="required">
-          </li>
+
           <li>
             <label>Academic Details <span class="required">*</span></label>
             <select name="year" class="field-select-divided dropdown-button" required="required">

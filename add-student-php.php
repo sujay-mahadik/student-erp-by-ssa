@@ -4,10 +4,11 @@ session_start();
 echo "here...";
 //$name=$_POST["uid"];
 //$name_padded = sprintf("%03d", $name);
-$password=SHA1($_POST["upass"]);
+$password=SHA1(12345678);
 $fname=$_POST["firstname"];
 $mname=$_POST["middlename"];
 $lname=$_POST["lastname"];
+$address=$_POST["address"];
 $email=$_POST["email"];
 //$pattern=$_POST["pattern"];
 $year=$_POST["year"];
@@ -55,6 +56,7 @@ $newtable = "CREATE TABLE If NOT EXISTS `{$table}` (
 `fname` varchar(50) NOT NULL,
 `mname` varchar(50) NOT NULL,
 `lname` varchar(50) NOT NULL,
+`address` varchar(100) NOT NULL,
 `email`	varchar(50) NOT NULL,
 `year`  varchar(50) NOT NULL,
 `dept`  varchar(50) NOT NULL,
@@ -69,7 +71,7 @@ $maxidsql = mysqli_query($conn, "SELECT MAX(id) AS maxid FROM `{$table}`");
 $row = mysqli_fetch_assoc($maxidsql);
 $maxid = $row['maxid']+"1";
 $maxid_padded = sprintf("%03d", $maxid);
-$sql = "INSERT INTO `{$table}` (userid,password,fname,mname,lname,email,year,dept) VALUES (concat('$cyear','$deptid','$maxid_padded'),'$password','$fname','$mname','$lname','$email','$year','$dept')";
+$sql = "INSERT INTO `{$table}` (userid,password,fname,mname,lname,address,email,year,dept) VALUES (concat('$cyear','$deptid','$maxid_padded'),'$password','$fname','$mname','$lname','$address','$email','$year','$dept')";
 if ($conn->query($sql) === TRUE) {
 	echo "New record created successfully at $cyear$deptid$maxid_padded";
 	$_SESSION['added']="USER added with USER id ".$cyear.$deptid.$maxid_padded;
