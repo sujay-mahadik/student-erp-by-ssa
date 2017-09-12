@@ -74,7 +74,7 @@ $maxid_padded = sprintf("%03d", $maxid);
 $sql = "INSERT INTO `{$table}` (userid,password,fname,mname,lname,address,email,year,dept) VALUES (concat('$cyear','$deptid','$maxid_padded'),'$password','$fname','$mname','$lname','$address','$email','$year','$dept')";
 if ($conn->query($sql) === TRUE) {
 	echo "New record created successfully at $cyear$deptid$maxid_padded";
-	$_SESSION['added']="USER added with USER id ".$cyear.$deptid.$maxid_padded;
+	$_SESSION['added']="Student added with USER id ".$cyear.$deptid.$maxid_padded." and default password 12345678";
 	$_SESSION['add']=1;
 	header("Location: tab-student.php");
 } else {
