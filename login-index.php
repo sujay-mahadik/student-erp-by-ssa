@@ -39,7 +39,7 @@ if (!isset($_SESSION['loggedin'])){
         </form>
     </div>
     <div class="footer">
-        <p> Copyright 2017. All Rights Reserved. Developed by SSA</p>
+        <p> Copyright <?=date('Y');?>. All Rights Reserved. Developed by SSA</p>
     </div>
 </body>
 </html>
