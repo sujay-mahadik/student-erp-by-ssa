@@ -1,10 +1,16 @@
 <?php
 include_once 'includes/db_connect.php';
 session_start();
+if (!isset($_SESSION['aai']))
+	{header("Location: login-index.php");
+}
 echo "here...";
 //$name=$_POST["uid"];
 //$name_padded = sprintf("%03d", $name);
 $password=SHA1(12345678);
+$examfees=0;
+$libraryfine=0;
+$otherfees=0;
 $fname=$_POST["firstname"];
 $mname=$_POST["middlename"];
 $lname=$_POST["lastname"];
@@ -59,7 +65,11 @@ $newtable = "CREATE TABLE If NOT EXISTS `{$table}` (
 `email`	varchar(50) NOT NULL,
 `year`  varchar(50) NOT NULL,
 `dept`  varchar(50) NOT NULL,
-`image` varchar(1024)
+`image` varchar(1024),
+`examfees` int(10),
+`libraryfine` int(10),
+`otherfees` int(10),
+`remarks` varchar(50)
 )";
 
 if($conn->query($newtable)===TRUE){
@@ -68,8 +78,19 @@ if($conn->query($newtable)===TRUE){
 	$startset="alter table `{$table}` AUTO_INCREMENT=".$start."";
 	$conn->query($startset);
 }
+//attendacne table
+$tableat=$cyear.$dept."am";
+$newtableattendance = "CREATE TABLE If NOT EXISTS `{$tableat}` (
+`userid` int(11),
+`subj1` int DEFAULT 0,
+`subj2` int DEFAULT 0
+)";
+if($conn->query($newtableattendance)===TRUE){
+	$sql="INSERT into `{$tableat}`(userid) values (99)";
+	$conn->query($sql);
+}
 
-$sql = "INSERT INTO `{$table}` (password,fname,mname,lname,address,email,year,dept) VALUES ('$password','$fname','$mname','$lname','$address','$email','$year','$dept')";
+$sql = "INSERT INTO `{$table}` (password,fname,mname,lname,address,email,year,dept,examfees,libraryfine,otherfees) VALUES ('$password','$fname','$mname','$lname','$address','$email','$year','$dept','$examfees','$libraryfine','$otherfees')";
 
 if ($conn->query($sql) === TRUE) {
 	$maxuseridsql = mysqli_query($conn, "SELECT MAX(userid) AS maxuserid FROM `{$table}`");
@@ -77,6 +98,15 @@ if ($conn->query($sql) === TRUE) {
 	$maxuserid = $row['maxuserid'];
 	$_SESSION['added']="Student added with USER ID :".$maxuserid." default password 12345678";
 	$_SESSION['add']=1;
+	header("Location: tab-student.php");
+} else {
+	echo "Error: " . $sql . "<br>" . $conn->error;
+}
+//insert id into attendance table
+$sql = "INSERT INTO `{$tableat}` (userid) VALUES ('$maxuserid')";
+
+if ($conn->query($sql) === TRUE) {
+
 	header("Location: tab-student.php");
 } else {
 	echo "Error: " . $sql . "<br>" . $conn->error;

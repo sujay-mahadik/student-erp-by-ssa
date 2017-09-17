@@ -30,6 +30,7 @@ else {
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/tab.css">
   <link rel="shortcut icon" href="images/sis-favicon.ico" type="image/x-icon">
   <title>Welcome Admin</title>
@@ -478,20 +479,20 @@ else {
         $tables="teacher";
 
 
-          $allstudentresult = $conn->query("SELECT * FROM `{$tables}` ");
-          while($row=mysqli_fetch_array($allstudentresult,MYSQLI_ASSOC))
-          {
-            ?>
-            <tr>
-              <td><?php echo $row['userid']; ?></td>
-              <td><?php echo $row['fname']." ".$row['mname']." ".$row['lname']; ?></td>
-              <td><?php echo $row['address']; ?></td>
+        $allstudentresult = $conn->query("SELECT * FROM `{$tables}` ");
+        while($row=mysqli_fetch_array($allstudentresult,MYSQLI_ASSOC))
+        {
+          ?>
+          <tr>
+            <td><?php echo $row['userid']; ?></td>
+            <td><?php echo $row['fname']." ".$row['mname']." ".$row['lname']; ?></td>
+            <td><?php echo $row['address']; ?></td>
 
-              <td><?php echo $row['dept']; ?></td>
-              <td><?php echo $row['email']; ?></td>
-            </tr>
-            <?php
-          }
+            <td><?php echo $row['dept']; ?></td>
+            <td><?php echo $row['email']; ?></td>
+          </tr>
+          <?php
+        }
 
         ?>
       </tbody>

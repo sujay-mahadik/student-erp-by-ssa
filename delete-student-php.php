@@ -1,6 +1,9 @@
 <?php
 include_once 'includes/db_connect.php';
 session_start();
+if (!isset($_SESSION['aai']))
+	{header("Location: login-index.php");
+}
 echo "here...";
 $userid=$_SESSION['duserid'];
 $table=$_SESSION['dtable_found'];

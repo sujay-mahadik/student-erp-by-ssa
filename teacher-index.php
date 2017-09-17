@@ -1,12 +1,16 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['ati']))
+if (!isset($_SESSION['ati'])){
     header("Location: login-index.php");
+}
+$_SESSION['logedout']="*You have been logged out";
+
 ?>
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/teacher-index.css">
     <link rel="shortcut icon" href="images/sis-favicon.ico" type="image/x-icon">
     <title>Teacher</title>
@@ -44,7 +48,7 @@ if (!isset($_SESSION['ati']))
                 </div>
                 <div id="tab-click" class="tabss red attend-icon">
                     <h1>Mark Attendance</h1>
-                    <a href="#"><span></span></a>
+                    <a href="attendance.php"><span></span></a>
                 </div>
             </div>
         </div>

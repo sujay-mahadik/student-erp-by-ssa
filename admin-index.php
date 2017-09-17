@@ -1,10 +1,10 @@
 <?php
 include_once 'includes/db_connect.php';
 session_start();
-
 if (!isset($_SESSION['aai']))
   {header("Location: login-index.php");
 }
+$_SESSION['logedout']="*You have been logged out";
 $result = $conn->query("SHOW TABLES from erp LIKE '%db'");
 $scount=0;
 while ($row = mysqli_fetch_array($result)) {
@@ -16,17 +16,19 @@ while ($row = mysqli_fetch_array($result)) {
 $_SESSION['scount']=$scount;
 $tcount_q= $conn->query("SELECT * FROM teacher");
 $tcount=$tcount_q->num_rows;
+$ocount_q= $conn->query("SELECT * FROM office");
+$ocount=$ocount_q->num_rows;
 ?>
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/admin-index.css">
   <link rel="shortcut icon" href="images/sis-favicon.ico" type="image/x-icon">
   <title>Welcome Admin</title>
 </head>
 <body class="bg">
   <div class="topnav pullUp">
-
     <a href="?logout">Logout</a>
     <?php
     if(isset($_GET['logout'])) {
@@ -50,7 +52,6 @@ $tcount=$tcount_q->num_rows;
       <div class="tabs">
         <div class="tabinfo">
           Name:
-
         </div>
       </div>
       <div class="tabs">
@@ -77,7 +78,7 @@ $tcount=$tcount_q->num_rows;
             if(isset($_GET['newteacher'])) {
               $_SESSION['newteacher'] = 1;
               header("Location: tab-teacher.php ");
-              unset($_GET['teacher']);
+              unset($_GET['newteacher']);
             }
             ?>
           </div>
@@ -95,10 +96,17 @@ $tcount=$tcount_q->num_rows;
           <a href="#"><span></span></a>
         </div>
         <div id="tab-click" class="tabss green office-icon">
-          <h1>33</h1>
-          <h1 class="small">Office staff</h1>
+          <h1><?php echo $ocount; ?></h1>
+          <h1 class="small">Office</h1>
           <h3>Add New/ Update</h3>
-          <a href="#"><span></span></a>
+          <a href="?newoffice"><span></span></a>
+          <?php
+          if(isset($_GET['newoffice'])) {
+            $_SESSION['newoffice'] = 1;
+            header("Location: tab-office.php ");
+            unset($_GET['newoffice']);
+          }
+          ?>
         </div>
       </div>
     </div>

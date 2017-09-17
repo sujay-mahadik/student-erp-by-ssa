@@ -1,50 +1,62 @@
 @font-face {
     font-family: marketdeco;
+
     src: url(../fonts/marketdeco.ttf);
 }
 
 @font-face {
     font-family: robotolight;
+
     src: url(../fonts/robotolight.ttf);
 }
 
 @font-face {
     font-family: robotomedium;
+
     src: url(../fonts/robotomedium.ttf);
 }
 
 body,
 html {
+    overflow: hidden;
+
     height: 100%;
     margin: 0;
-    overflow: hidden;
 }
 
 .bg {
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../images/mitcoe-bg.jpg");
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
     position: relative;
+
+    height: 100%;
+
+    background: linear-gradient(0deg, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), url('../images/mitcoe-bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 div.topnav {
-    margin: 0 auto;
     width: 85%;
+    margin: 0 auto;
+
     text-align: center;
 }
 
 div.topnav a {
-    color: white;
-    text-decoration: none;
+    font-family: robotolight;
     font-size: 17px;
-    float: left;
-    padding: 14px 16px;
+
     position: relative;
     z-index: 1;
+
+    float: left;
+
+    padding: 14px 16px;
+
     cursor: pointer;
-    font-family: robotolight;
+    text-decoration: none;
+
+    color: white;
 }
 
 div.topnav a.developedby {
@@ -53,14 +65,17 @@ div.topnav a.developedby {
 
 div.pullUp a:before {
     position: absolute;
+    bottom: 0;
+    left: 0;
+
     width: 100%;
     height: 2px;
-    left: 0px;
-    bottom: 0px;
+
     content: '';
-    background: #FFF;
-    opacity: 0.3;
-    transition: all 0.3s;
+    transition: all .3s;
+
+    opacity: .3;
+    background: #fff;
 }
 
 div.pullUp a:hover:before {
@@ -73,113 +88,130 @@ div.pullUp a.active:before {
 
 .logincard,
 .logincard-bck {
-    height: 350px;
-    width: 350px;
-    border-radius: 4px;
+    position: absolute;
     top: 50%;
     left: 90%;
-    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
     transform: translate(-90%, -50%);
+
+    border-radius: 4px;
 }
 
 .logincard-bck {
-    background-color: white;
-    border-bottom: 12px solid sienna;
     opacity: .8;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.35);
+    border-bottom: 12px solid sienna;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .4), 0 6px 20px 0 rgba(0, 0, 0, .35);
 }
 
 input[type=text],
 input[type=password] {
-    color: black;
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    box-sizing: border-box;
-    border-radius: 4px;
-    background-color: transparent;
-    outline: none;
-    background-size: 43px;
-    background-position: 2px;
-    background-repeat: no-repeat;
-    padding-left: 48px;
-    font-size: 18px;
-    border: 0;
-    outline: 0;
-    border-bottom: 4px solid #01354f;
     font-family: robotomedium;
+    font-size: 18px;
+
+    display: inline-block;
+
+    box-sizing: border-box;
+    width: 100%;
+    margin: 8px 0;
+    padding: 12px 20px;
+    padding-left: 48px;
+
+    color: black;
+    border: 0;
+    border-bottom: 4px solid #01354f;
+    border-radius: 4px;
+    outline: none;
+    outline: 0;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: 2px;
+    background-size: 43px;
 }
 
 input[type=text] {
-  margin-top: 25px;
-  background-image: url("../images/username.png");
+    margin-top: 25px;
+
+    background-image: url('../images/username.png');
 }
 
 input[type=password] {
-    background-image: url("../images/key.png");
+    background-image: url('../images/key.png');
 }
 
 .container-input-fields {
-    padding-left: 30px;
-    padding-right: 30px;
     padding-top: 5px;
+    padding-right: 30px;
     padding-bottom: 10px;
+    padding-left: 30px;
 }
 
 .container-login-title {
     font-family: marketdeco;
     font-size: 45px;
-    color: #02608e;
-    padding: 5px;
-    padding-left: 20px;
+
     margin-top: 25px;
     margin-bottom: 5px;
+    padding: 5px;
+    padding-left: 20px;
+
+    color: #02608e;
     border-left: 10px solid #02608e;
 }
 
-.login-error{
+.login-error {
     font-family: robotomedium;
-    color: red;
     font-size: 15px;
+
     float: right;
 
+    color: red;
 }
 
 button {
-    text-align: center;
-    float: right;
     font-family: marketdeco;
     font-size: 25px;
+
+    float: right;
+
+    width: 100%;
+    margin-top: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 10px 20px;
+
+    cursor: pointer;
+    transition: .3s ease;
+    text-align: center;
+
+    color: grey;
     border: 4px solid grey;
     background-color: transparent;
-    color: grey;
-    padding: 10px 20px;
-    cursor: pointer;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    transition: .3s ease;
-    margin-top: 20px;
 }
 
 button:hover {
-    border: 4px solid #78a538;
     color: #78a538;
+    border: 4px solid #78a538;
     background-color: whitesmoke;
     box-shadow: 0 0 10px #78a538;
 }
 
 .footer {
-    color: white;
-    opacity: .8;
     position: fixed;
-    left: 0px;
-    bottom: 0px;
-    height: 30px;
+    bottom: 0;
+    left: 0;
+
     width: 100%;
+    height: 30px;
     padding-bottom: 20px;
+
     text-align: center;
+
+    opacity: .8;
+    color: white;
 }
 
 .footer:hover {
@@ -200,3 +232,15 @@ button:hover {
         color: blue;
     }
 }
+
+/*@media screen and (max-width: 1200px){
+    html{
+        background-image:url(../images/comingsoon.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100%;
+    }
+    body{
+        display: none;
+    }
+    }*/

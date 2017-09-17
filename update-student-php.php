@@ -1,6 +1,10 @@
 <?php
 include_once 'includes/db_connect.php';
 session_start();
+
+if (!isset($_SESSION['aai'])){
+	header("Location: login-index.php");
+}
 echo "here...";
 //$name=$_POST["uid"];
 //$name_padded = sprintf("%03d", $name);

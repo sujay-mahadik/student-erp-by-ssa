@@ -1,15 +1,19 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['asi']))
+if (!isset($_SESSION['asi'])){
     header("Location: login-index.php");
+}
+
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="css/student-index.css">
-    <link rel="shortcut icon" href="images/sis-favicon.ico" type="image/x-icon">
-    <title>Student</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="css/student-index.css">
+  <link rel="shortcut icon" href="images/sis-favicon.ico" type="image/x-icon">
+  <title>Student</title>
 </head>
 <body class="bg">
     <div class="topnav pullUp">
@@ -44,7 +48,7 @@ if (!isset($_SESSION['asi']))
                 </div>
                 <div id="tab-click" class="tabss red attend-icon">
                     <h1>My Attendance</h1>
-                    <a href="#"><span></span></a>
+                    <a href="view-attendance.php"><span></span></a>
                 </div>
             </div>
         </div>
@@ -52,9 +56,9 @@ if (!isset($_SESSION['asi']))
             <div class="tabs">
             </div>
             <div class="tabs">
-                <div id="tab-click" class="tabss orange marks-icon">
-                    <h1>My Marks</h1>
-                    <a href="#"><span></span></a>
+                <div id="tab-click" class="tabss orange fees-icon">
+                    <h1>Fees: Rs.<?php echo $_SESSION['totalfees']; ?></h1>
+                    <a href="student-view-fees.php"><span></span></a>
                 </div>
                 <div id="tab-click" class="tabss green notes-icon">
                     <h1>My Notes</h1>

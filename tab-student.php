@@ -30,6 +30,7 @@ else {
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/tab.css">
   <link rel="shortcut icon" href="images/sis-favicon.ico" type="image/x-icon">
   <title>Welcome Admin</title>
@@ -99,8 +100,6 @@ else {
             </select>
             <select name="dept" class="field-select-divided dropdown-button" required="required">
               <option value="">--select department--</option>
-              <option value="civil">Civil</option>
-              <option value="computer">Computer</option>
               <option value="it">IT</option>
               <option value="entc">ENTC</option>
               <option value="mechanical">Mechanical</option>
