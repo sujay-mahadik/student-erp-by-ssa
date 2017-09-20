@@ -68,7 +68,16 @@ if($conn->query($newtable)===TRUE){
 	$startset="alter table `{$table}` AUTO_INCREMENT=".$start."";
 	$conn->query($startset);
 }
-
+$tableat=$cyear.$dept."am";
+$newtableattendance = "CREATE TABLE If NOT EXISTS `{$tableat}` (
+`userid` int(11) PRIMARY KEY,
+`subj1` int DEFAULT 0,
+`subj2` int DEFAULT 0
+)";
+if($conn->query($newtableattendance)===TRUE){
+	$sql="INSERT into `{$tableat}`(userid) values (99)";
+	$conn->query($sql);
+}
 $sql = "INSERT INTO `{$table}` (password,fname,mname,lname,address,email,year,dept) VALUES ('$password','$fname','$mname','$lname','$address','$email','$year','$dept')";
 
 if ($conn->query($sql) === TRUE) {
@@ -77,6 +86,14 @@ if ($conn->query($sql) === TRUE) {
 	$maxuserid = $row['maxuserid'];
 	$_SESSION['added']="Student added with USER ID :".$maxuserid." default password 12345678";
 	$_SESSION['add']=1;
+	header("Location: tab-student.php");
+} else {
+	echo "Error: " . $sql . "<br>" . $conn->error;
+}
+$sql = "INSERT INTO `{$tableat}` (userid) VALUES ('$maxuserid')";
+
+if ($conn->query($sql) === TRUE) {
+
 	header("Location: tab-student.php");
 } else {
 	echo "Error: " . $sql . "<br>" . $conn->error;

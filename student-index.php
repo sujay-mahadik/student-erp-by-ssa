@@ -44,7 +44,7 @@ if (!isset($_SESSION['asi']))
                 </div>
                 <div id="tab-click" class="tabss red attend-icon">
                     <h1>My Attendance</h1>
-                    <a href="#"><span></span></a>
+                    <a href="view-attendance.php"><span></span></a>
                 </div>
             </div>
         </div>
@@ -58,7 +58,7 @@ if (!isset($_SESSION['asi']))
                 </div>
                 <div id="tab-click" class="tabss green notes-icon">
                     <h1>My Notes</h1>
-                    <a href="#"><span></span></a>
+                    <a href="download-php.php"><span></span></a>
                 </div>
             </div>
         </div>

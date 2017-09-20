@@ -14,7 +14,7 @@ if ($result->num_rows > 0) {
 	$_SESSION['username']=$row['fname'];
 	$_SESSION['image']=$row['image'];
 	echo $row['image'];
-	
+
 	header("Location: admin-index.php");
 }
 else {
@@ -53,7 +53,7 @@ else {
 			$row = mysqli_fetch_array($table_found_result);
 			$_SESSION['username']=$row['fname']." ".$row['mname']." ".$row['lname'];
 			$_SESSION['image']=$row['image'];
-
+			$_SESSION['foundtable']=substr($table_found,0,-2);
 			header("Location: student-index.php");
 		}
 		else{
