@@ -17,7 +17,7 @@ if ($search_result->num_rows > 0) {
     $table_found = $tables;
 }
 
-$table_found_sql = "SELECT * FROM `{$table_found}` where userid='$id'";
+$table_found_sql = "SELECT * FROM admin where userid='$id'";
 $table_found_result = $conn->query($table_found_sql);
 if ($table_found_result->num_rows > 0) {
     session_start();
@@ -29,19 +29,19 @@ if ($table_found_result->num_rows > 0) {
     $_SESSION['dlname']=$row['lname'];
     $_SESSION['daddress']=$row['address'];
     $_SESSION['demail']=$row['email'];
-    
+
     $_SESSION['dpost']=$row['post'];
     $_SESSION['dimage']=$row['image'];
     $_SESSION['searched']="1";
     $_SESSION['delete']='1';
     $_SESSION['showdelete']='1';
-    header("Location: tab-office.php");
+    header("Location: tab-admin.php");
 }
 else{
     session_start();
     $_SESSION['search-errord'] = '*User ID not fount';
     $_SESSION['delete']='1';
     $_SESSION['showdelete']='0';
-    header("Location: tab-office.php");
+    header("Location: tab-admnn.php");
 }
 ?>

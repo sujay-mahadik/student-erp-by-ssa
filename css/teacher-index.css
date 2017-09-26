@@ -35,6 +35,41 @@ html {
     background-size: cover;
 }
 
+.logout-button{
+
+    font-size: 30px;
+    font-family: robotomedium;
+    text-decoration: none;
+    float: right;
+    padding-right: 40px;
+    cursor: pointer;
+    text-decoration: none;
+    background-image: url('../images/ic-logout-b.png');
+    background-repeat: no-repeat;
+    background-size: 25px;
+    background-position: 0 50%;
+    color: #002f47;
+    transition: .2s ease;
+
+    
+
+}
+
+.logout-button a{
+    padding-left: 30px;
+    text-decoration: none;
+    color: #002f47;
+
+
+}
+.logout-button :hover{
+    text-decoration: none;
+    color: black;
+    background-image: url('../images/ic-logout-a.png');
+    background-repeat: no-repeat;
+    background-size: 25px;
+    background-position: 0 50%;
+}
 div.topnav {
     width: 85%;
     margin: 0 auto;
@@ -105,6 +140,16 @@ div.pullUp a.active:before {
     border-bottom: 12px solid sienna;
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .4), 0 6px 20px 0 rgba(0, 0, 0, .35);
+}
+
+.tabinfo li{
+    text-decoration: none;
+    color: #002f47;
+    font-family: 'Varela Round';
+    font-size: 25px;
+    list-style-type: none;
+    padding-top: 5px;
+    padding-left: 70px;
 }
 
 input[type=text],

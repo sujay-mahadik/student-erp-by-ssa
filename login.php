@@ -11,10 +11,12 @@ if ($result->num_rows > 0) {
 	$_SESSION['aai'] = 1;
 	$_SESSION['id']=$id;
 	$row = mysqli_fetch_array($result);
-	$_SESSION['username']=$row['fname'];
+	$_SESSION['username']=$row['fname']." ".$row['mname']." ".$row['lname'];
+	$_SESSION['email']=$row['email'];
+	$_SESSION['address']=$row['address'];
 	$_SESSION['image']=$row['image'];
 	echo $row['image'];
-	
+
 	header("Location: admin-index.php");
 }
 else {
@@ -59,6 +61,8 @@ else {
 				$search_result = $conn->query($search_sql);
 				if ($search_result->num_rows > 0) {
 					$table_found = $tables;
+					echo $table_found;
+
 				}
 			}
 			$table_found_sql = "SELECT * FROM `{$table_found}` where userid='$id' and password='$password'";
@@ -66,17 +70,12 @@ else {
 			if ($table_found_result->num_rows > 0) {
 				session_start();
 				$_SESSION['id']=$id;
+				$_SESSION['stf'] = $table_found;
+				echo $_SESSION['stf'];
 				$_SESSION['asi'] = 1;
 				$row = mysqli_fetch_array($table_found_result);
-				$_SESSION['username']=$row['fname']." ".$row['mname']." ".$row['lname'];
-				$_SESSION['email']=$row['email'];
-				$_SESSION['address']=$row['address'];
-				$_SESSION['class']=$row['year']."-".$row['dept'];
-				$_SESSION['examfees']=$row['examfees'];
-				$_SESSION['libraryfine']=$row['libraryfine'];
-				$_SESSION['otherfees']=$row['otherfees'];
-				$_SESSION['totalfees']=$row['examfees']+$row['libraryfine']+$row['otherfees'];
-				$_SESSION['image']=$row['image'];
+				
+				
 				$_SESSION['foundtable']=substr($table_found,0,-2);
 				header("Location: student-index.php");
 			}

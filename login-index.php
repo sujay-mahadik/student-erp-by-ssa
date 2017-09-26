@@ -12,10 +12,9 @@
 </head>
 <body class="bg">
     <div class="topnav pullUp">
-        <a class="active" href="login-index.php">Login</a>
         <a href="#">About</a>
         <a href="#">Help</a>
-        <a class="developedby" href="#">Developed By</a>
+        <a href="developed.php">Developed By</a>
     </div>
     <div class="logincard-bck">
         <!--Only For Login card Background-->

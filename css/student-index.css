@@ -106,6 +106,89 @@ div.pullUp a.active:before {
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .4), 0 6px 20px 0 rgba(0, 0, 0, .35);
 }
+.home-button {
+    font-family: marketdeco;
+    font-size: 25px;
+
+    float: right;
+
+    padding-top: 5px;
+    padding-right: 25px;
+
+    cursor: pointer;
+    text-decoration: none;
+
+
+    color: #002f47;
+    background-image: url('../images/ic-home-b.png');
+    background-repeat: no-repeat;
+    background-position: 0 75%;
+    background-size: 25px;
+}
+
+.home-button a {
+    padding-left: 35px;
+    text-decoration: none;
+
+    color: #002f47;
+}
+.home-button :hover {
+    padding-top: 5px;
+
+    text-decoration: none;
+
+    color: black;
+    background-image: url('../images/ic-home-a.png');
+    background-repeat: no-repeat;
+    background-position: 0 75%;
+    background-size: 25px;
+}
+
+
+.logout-button{
+
+    font-size: 30px;
+    font-family: robotomedium;
+    text-decoration: none;
+    float: right;
+    padding-right: 40px;
+    cursor: pointer;
+    text-decoration: none;
+    background-image: url('../images/ic-logout-b.png');
+    background-repeat: no-repeat;
+    background-size: 25px;
+    background-position: 0 50%;
+    color: #002f47;
+    transition: .2s ease;
+
+    
+
+}
+
+.logout-button a{
+    padding-left: 30px;
+    text-decoration: none;
+    color: #002f47;
+
+
+}
+.logout-button :hover{
+    text-decoration: none;
+    color: black;
+    background-image: url('../images/ic-logout-a.png');
+    background-repeat: no-repeat;
+    background-size: 25px;
+    background-position: 0 50%;
+}
+.tabinfo li{
+    text-decoration: none;
+    color: #002f47;
+    font-family: 'Varela Round';
+    font-size: 25px;
+    list-style-type: none;
+    padding-top: 5px;
+    padding-left: 70px;
+}
 
 input[type=text],
 input[type=password] {

@@ -38,18 +38,9 @@ $post=$_SESSION['post'];
 </head>
 <body class="bg">
   <div class="topnav pullUp">
-    <a href="office-index.php">Home</a>
-
-    <a href="?logout">Logout</a>
-    <?php
-    if(isset($_GET['logout'])) {
-      session_unset();
-      header("Location: login-index.php");
-    }
-    ?>
     <a href="#">About</a>
     <a href="#">Help</a>
-    <a class="developedby" href="#">Developed By</a>
+    <a href="#">Developed By</a>
   </div>
   <div class="admincard-bck">
     <!--Only For Login card Background-->
@@ -61,6 +52,18 @@ $post=$_SESSION['post'];
       <button class="tablinks" onclick="opentab(event, 'Issue')" id="<?php echo $_SESSION['issue']?>">Issue Student</button>
       <button class="tablinks" onclick="opentab(event, 'Issuemany')" id="<?php echo $_SESSION['issuemany']?>">Issue Class</button>
       <button class="tablinks" onclick="opentab(event, 'View')" id="<?php echo $_SESSION['view']?>">View Pending</button>
+      <div class="logout-button">
+        <a href="?logout">Logout</a>
+        <?php
+        if(isset($_GET['logout'])) {
+          session_unset();
+          header("Location: login-index.php");
+        }
+        ?>
+      </div>
+      <div class="home-button">
+        <a href="office-index.php">Home</a>
+      </div>
 
     </div>
     <div id="Collect" class="tabcontent">

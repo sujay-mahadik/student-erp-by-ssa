@@ -79,26 +79,33 @@ if($conn->query($newtable)===TRUE){
 	$conn->query($startset);
 }
 //attendacne table
-$tableat=$cyear.$dept."am";
-$newtableattendance = "CREATE TABLE If NOT EXISTS `{$tableat}` (
-`userid` int(11),
-`subj1` int DEFAULT 0,
-`subj2` int DEFAULT 0
-)";
-if($conn->query($newtableattendance)===TRUE){
-	$sql="INSERT into `{$tableat}`(userid) values (99)";
-	$conn->query($sql);
-}
 
 $sql = "INSERT INTO `{$table}` (password,fname,mname,lname,address,email,year,dept,examfees,libraryfine,otherfees) VALUES ('$password','$fname','$mname','$lname','$address','$email','$year','$dept','$examfees','$libraryfine','$otherfees')";
-
+$tableat=$cyear.$dept."am";
 if ($conn->query($sql) === TRUE) {
 	$maxuseridsql = mysqli_query($conn, "SELECT MAX(userid) AS maxuserid FROM `{$table}`");
 	$row = mysqli_fetch_assoc($maxuseridsql);
 	$maxuserid = $row['maxuserid'];
-	$_SESSION['added']="Student added with USER ID :".$maxuserid." default password 12345678";
-	$_SESSION['add']=1;
-	header("Location: tab-student.php");
+	//echo $maxuserid;
+	$last=substr($maxuserid, -3);
+	if($last=="001")
+	{
+		
+		$newtableattendance = "CREATE TABLE If NOT EXISTS `{$tableat}` (
+		`userid` int(11),
+		`subj1` int DEFAULT 0,
+		`subj2` int DEFAULT 0
+	)";
+	if($conn->query($newtableattendance)===TRUE){
+		$sql="INSERT into `{$tableat}`(userid) values (99)";
+		$conn->query($sql);
+	}
+
+}
+echo $last;
+$_SESSION['added']="Student added with USER ID :".$maxuserid." default password 12345678";
+$_SESSION['add']=1;
+header("Location: tab-student.php");
 } else {
 	echo "Error: " . $sql . "<br>" . $conn->error;
 }

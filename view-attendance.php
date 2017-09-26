@@ -22,18 +22,9 @@ if (!isset($_SESSION['asi']))
 </head>
 <body class="bg">
   <div class="topnav pullUp">
-    <a href="student-index.php">Home</a>
-
-    <a href="?logout">Logout</a>
-    <?php
-    if(isset($_GET['logout'])) {
-      session_unset();
-      header("Location: login-index.php");
-    }
-    ?>
     <a href="#">About</a>
     <a href="#">Help</a>
-    <a class="developedby" href="#">Developed By</a>
+    <a href="#">Developed By</a>
   </div>
   <div class="admincard-bck">
     <!--Only For Login card Background-->
@@ -41,9 +32,23 @@ if (!isset($_SESSION['asi']))
   <div class="admincard">
     <div class="tab">
       <a class="containertitle "><?php echo $_SESSION['username']; ?> : Attendance graph</a>
-      
+      <div class="logout-button">
+        <a href="?logout">Logout</a>
+        <?php
+        if(isset($_GET['logout'])) {
+          session_unset();
+          header("Location: login-index.php");
+        }
+        ?>
+      </div>
+      <div class="home-button">
+        <a href="student-index.php">Home</a>
+      </div>
 
     </div>
+
+    
+
     <?php
 
     $tabledisplay=$_SESSION['foundtable']."am";

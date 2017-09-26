@@ -37,6 +37,7 @@ else {
 </head>
 <body class="bg">
   <div class="topnav pullUp">
+
     <a href="#">About</a>
     <a href="#">Help</a>
     <a href="#">Developed By</a>
@@ -46,12 +47,11 @@ else {
   </div>
   <div class="admincard">
     <div class="tab">
-      <a class="containertitle ">Student</a>
+      <a class="containertitle ">Office</a>
       <button class="tablinks" onclick="opentab(event, 'Add')" id="<?php echo $_SESSION['add']?>">Add</button>
       <button class="tablinks" onclick="opentab(event, 'Update')" id="<?php echo $_SESSION['update']?>">Update</button>
       <button class="tablinks" onclick="opentab(event, 'Delete')" id="<?php echo $_SESSION['delete']?>">Delete</button>
       <button class="tablinks" onclick="opentab(event, 'View')" id="<?php echo $_SESSION['viewall']?>">View All</button>
-      
       <div class="logout-button">
         <a href="?logout">Logout</a>
         <?php
@@ -74,9 +74,9 @@ else {
         }
         ?>
       </div>
-      <form action="add-student-php.php" method="post">
+      <br>
+      <form action="add-admin-php.php" method="post">
         <ul class="form-style">
-
           <li><label>Full Name <span class="required">*</span></label>
             <input type="text" name="firstname" class="field-divided" placeholder="First" required="required" >
             <input type="text" name="middlename" class="field-divided" placeholder="Middle"  >
@@ -91,18 +91,13 @@ else {
             <input type="email" placeholder="Email Address" name="email" class="field-long" required="required">
           </li>
           <li>
-            <label>Academic Details <span class="required">*</span></label>
-            <select name="year" class="field-select-divided dropdown-button" required="required">
-              <option value="">--select year--</option>
-              <option value="fe">FE</option>
-              <option value="se">SE</option>
-              <option value="te">TE</option>
-            </select>
-            <select name="dept" class="field-select-divided dropdown-button" required="required">
-              <option value="">--select department--</option>
-              <option value="it">IT</option>
-              <option value="entc">ENTC</option>
-              <option value="mechanical">Mechanical</option>
+            <label>Designation<span class="required">*</span></label>
+            <select name="post" class="field-select-divided dropdown-button" required="required">
+              <option value="">--select designation--</option>
+              <option value="head cashier">Head Cashier</option>
+              <option value="staff">Staff</option>
+              <option value="librarian">Librarian</option>
+              
             </select>
           <!-- <select name="pattern" class="field-select-divided dropdown-button">
             <option value="">--select pattern--</option>
@@ -197,12 +192,11 @@ else {
             <button  type="submit">Submit</button>
           </div>
         </li>
-
       </ul>
     </form>
   </div>
   <div id="Update" class="tabcontent">
-    <form action="update-search.php" method="post">
+    <form action="update-search-admin.php" method="post">
       <ul class="form-style">
         <li>
           <label>User ID <span class="required">*</span></label>
@@ -212,7 +206,6 @@ else {
           <div class="submit">
             <button  type="submit">Search</button>
           </div>
-
         </li>
         <li>
           <div class="result-found">
@@ -239,7 +232,6 @@ else {
     $uaddress=$_SESSION['uaddress'];
     $uemail=$_SESSION['uemail'];
     $uyear=$_SESSION['uyear'];
-    $udept=$_SESSION['udept'];
     $uimage=$_SESSION['uimage'];
     if ($_SESSION['showupdate'] == 1) {
       $showupdate=1;
@@ -250,7 +242,7 @@ else {
     }
     ?>
     <div class="update-form" id="update-form">
-      <form action="update-student-php.php" method="post">
+      <form action="update-admin-php.php" method="post">
         <ul class="form-style">
           <li><label>Full Name <span class="required">*</span></label>
             <input type="text" name="ufirstname" class="field-divided" value="<?php echo "$ufname"; ?>" required="required"/>
@@ -379,7 +371,7 @@ else {
 </div>
 </div>
 <div id="Delete" class="tabcontent">
-  <form action="delete-search.php" method="post">
+  <form action="delete-search-admin.php" method="post">
     <ul class="form-style">
       <li>
         <label>User ID <span class="required">*</span></label>
@@ -414,8 +406,7 @@ else {
   $dlname=$_SESSION['dlname'];
   $daddress=$_SESSION['daddress'];
   $demail=$_SESSION['demail'];
-  $dyear=$_SESSION['dyear'];
-  $ddept=$_SESSION['ddept'];
+  $dpost=$_SESSION['dpost'];
   $dimage=$_SESSION['dimage'];
   if ($_SESSION['showdelete'] == 1) {
     $showdelete=1;
@@ -426,7 +417,7 @@ else {
   }
   ?>
   <div class="delete-form" id="delete-form">
-    <form action="delete-student-php.php" method="post">
+    <form action="delete-admin-php.php" method="post">
       <ul class="delete-details">
         <li>
           <?php
@@ -435,12 +426,7 @@ else {
         </li>
         <li>
           <?php
-          echo 'Year: ' . $_SESSION['dyear']."\n";
-          ?>
-        </li>
-        <li>
-          <?php
-          echo 'Department: ' . $_SESSION['ddept']."\n";
+          echo 'Post: ' . $_SESSION['dpost']."\n";
           ?>
         </li>
         <li>
@@ -467,32 +453,27 @@ else {
         <tr>
           <th>USER ID</th>
           <th>NAME</th>
+          
           <th>ADDRESS</th>
-          <th>YEAR </th>
-          <th>DEPT </th>
+          
           <th>EMAIL</th>
         </tr>
       </thead>
       <tbody>
         <?php
-        $allstudent = $conn->query("SHOW TABLES from erp LIKE '%db' ");
-        $tables="";
-        $i=0;
-        while ($row = mysqli_fetch_array($allstudent)) {
-          $allstudentresult = $conn->query("SELECT * FROM `{$row[$i]}` ");
-          while($row=mysqli_fetch_array($allstudentresult,MYSQLI_ASSOC))
-          {
-            ?>
-            <tr>
-              <td><?php echo $row['userid']; ?></td>
-              <td><?php echo $row['fname']." ".$row['mname']." ".$row['lname']; ?></td>
-              <td><?php echo $row['address']; ?></td>
-              <td><?php echo $row['year']; ?></td>
-              <td><?php echo $row['dept']; ?></td>
-              <td><?php echo $row['email']; ?></td>
-            </tr>
-            <?php
-          }
+        $tables="admin";
+        $allstudentresult = $conn->query("SELECT * FROM `{$tables}` ");
+        while($row=mysqli_fetch_array($allstudentresult,MYSQLI_ASSOC))
+        {
+          ?>
+          <tr>
+            <td><?php echo $row['userid']; ?></td>
+            <td><?php echo $row['fname']." ".$row['mname']." ".$row['lname']; ?></td>
+            
+            <td><?php echo $row['address']; ?></td>
+            <td><?php echo $row['email']; ?></td>
+          </tr>
+          <?php
         }
         ?>
       </tbody>

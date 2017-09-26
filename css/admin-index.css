@@ -3,6 +3,11 @@
 
     src: url(../fonts/marketdeco.ttf);
 }
+@font-face {
+    font-family: ubuntumono;
+
+    src: url(../fonts/ubuntumono.ttf);
+}
 
 @font-face {
     font-family: robotolight;
@@ -98,6 +103,7 @@ div.pullUp a.active:before {
     transform: translate(-50%, -50%);
 
     border-radius: 4px;
+    text-decoration: none;
 }
 
 .admincard-bck {
@@ -108,6 +114,54 @@ div.pullUp a.active:before {
 }
 
 
+.tabinfo li{
+    text-decoration: none;
+    color: #002f47;
+    font-family: 'Varela Round';
+    font-size: 25px;
+    list-style-type: none;
+    padding-top: 7px;
+    padding-left: 70px;
+}
+.pdetails{
+    padding-top:25px;
+}
+
+.logout-button{
+
+    font-size: 30px;
+    font-family: robotomedium;
+    text-decoration: none;
+    float: right;
+    padding-right: 40px;
+    cursor: pointer;
+    text-decoration: none;
+    background-image: url('../images/ic-logout-b.png');
+    background-repeat: no-repeat;
+    background-size: 25px;
+    background-position: 0 50%;
+    color: #002f47;
+    transition: .2s ease;
+
+    
+
+}
+
+.logout-button a{
+    padding-left: 30px;
+    text-decoration: none;
+    color: #002f47;
+
+
+}
+.logout-button :hover{
+    text-decoration: none;
+    color: black;
+    background-image: url('../images/ic-logout-a.png');
+    background-repeat: no-repeat;
+    background-size: 25px;
+    background-position: 0 50%;
+}
 
 input[type=text],
 input[type=password] {

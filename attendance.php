@@ -15,22 +15,9 @@ if (!isset($_SESSION['ati'])){
 </head>
 <body class="bg">
   <div class="topnav pullUp">
-    <a href="?adminhome">Home</a>
-    <?php
-    if(isset($_GET['adminhome'])) {
-      header("Location: admin-index.php");
-    }
-    ?>
-    <a href="?logout">Logout</a>
-    <?php
-    if(isset($_GET['logout'])) {
-      session_unset();
-      header("Location: login-index.php");
-    }
-    ?>
     <a href="#">About</a>
     <a href="#">Help</a>
-    <a class="developedby" href="#">Developed By</a>
+    <a  href="#">Developed By</a>
   </div>
   <div class="admincard-bck">
     <!--Only For Login card Background-->
@@ -38,6 +25,18 @@ if (!isset($_SESSION['ati'])){
   <div class="admincard">
     <div class="tab">
       <a class="containertitle ">Student</a>
+      <div class="logout-button">
+        <a href="?logout">Logout</a>
+        <?php
+        if(isset($_GET['logout'])) {
+          session_unset();
+          header("Location: login-index.php");
+        }
+        ?>
+      </div>
+      <div class="home-button">
+        <a href="teacher-index.php">Home</a>
+      </div>
       
     </div>
     <form action="tr.php" method="post">

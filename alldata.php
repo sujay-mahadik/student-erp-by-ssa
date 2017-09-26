@@ -51,7 +51,7 @@ drop_empty_tables();
           <th>USER ID</th>
           <th>NAME</th>
           <th>YEAR </th>
-          <th>DEPT </th>      
+          <th>DEPT </th>
         </tr>
       </thead>
       <tbody>
@@ -74,7 +74,7 @@ drop_empty_tables();
           }
         }
 
-        
+
         ?>
       </tbody>
     </table>
@@ -120,7 +120,7 @@ drop_empty_tables();
     <tr>
       <th>USER ID.</th>
       <th>NAME.</th>
-      <th>YEAR </th>        
+      <th>YEAR </th>
     </tr>
   </thead>
   <tbody>
@@ -147,7 +147,3 @@ drop_empty_tables();
   </tbody>
 </table>
 -->
-
-
-
-

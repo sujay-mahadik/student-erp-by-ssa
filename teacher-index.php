@@ -1,32 +1,33 @@
 <?php
+include_once 'includes/db_connect.php';
+
 session_start();
 
 if (!isset($_SESSION['ati'])){
     header("Location: login-index.php");
 }
 $_SESSION['logedout']="*You have been logged out";
-
+$userid = $_SESSION['id'];
+$admininfo="SELECT * FROM teacher WHERE userid = '$userid'";
+$admininfoquery =  $conn->query($admininfo);
+$row = mysqli_fetch_array($admininfoquery);
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/teacher-index.css">
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet"> 
+
     <link rel="shortcut icon" href="images/sis-favicon.ico" type="image/x-icon">
     <title>Teacher</title>
 </head>
 <body class="bg">
     <div class="topnav pullUp">
-        <a href="?logout">Logout</a>
-        <?php
-        if(isset($_GET['logout'])) {
-            session_unset();
-            header("Location: login-index.php");
-        }
-        ?>
+
         <a href="#">About</a>
         <a href="#">Help</a>
-        <a class="developedby" href="#">Developed By</a>
+        <a href="#">Developed By</a>
     </div>
     <div class="admincard-bck">
         <!--Only For Login card Background-->
@@ -34,12 +35,32 @@ $_SESSION['logedout']="*You have been logged out";
     <div class="admincard">
         <form action="">
             <div class="containertitle"><div class="profile-image" style="background-image: url(<?php echo $_SESSION['image'];?>); background-repeat: no-repeat;background-position: center;">
-            </div>WELCOME <?php echo $_SESSION['username']; ?>
+            </div>WELCOME <?php echo $row['fname']; ?>
+            <div class="logout-button">
+              <a href="?logout">Logout</a>
+              <?php
+              if(isset($_GET['logout'])) {
+                session_unset();
+                header("Location: login-index.php");
+            }
+            ?>
         </div>
-        <div class="container-tabs">
-            <div class="tabs">
+    </div>
+    <div class="container-tabs">
+        <div class="tabs">
                     <!--<div class="pic" style="background-image: url(<?php echo $_SESSION['profile_img'];?>); background-repeat: no-repeat;background-position: center; ">
-                </div>-->
+                    </div>-->
+                    <div class="tabinfo">
+                      <li>
+                        <b>Name:</b> <?php echo $row['fname']." ".$row['mname']." ".$row['lname']; ?>
+                    </li>
+                    <li>
+                        <b>Email:</b> <?php echo $row['email']; ?>
+                    </li>
+                    <li>
+                        <b>Address:</b> <?php echo $row['address']; ?>
+                    </li>
+                </div>
             </div>
             <div class="tabs">
                 <div id="tab-click" class="tabss blue tt-icon">
