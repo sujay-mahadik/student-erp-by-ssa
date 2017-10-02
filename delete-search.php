@@ -1,5 +1,9 @@
 <?php
 include_once 'includes/db_connect.php';
+session_start();
+if (!isset($_SESSION['aai']))
+	{header("Location: login-index.php");
+}
 $id=$_POST["uname"];
 $_SESSION['showdelete']=0;
 $result = $conn->query("SHOW TABLES from erp LIKE '%db'");

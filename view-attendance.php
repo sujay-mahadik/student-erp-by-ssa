@@ -14,104 +14,149 @@ if (!isset($_SESSION['asi']))
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <link rel="stylesheet" href="css/tab.css">
   <link rel="shortcut icon" href="images/sis-favicon.ico" type="image/x-icon">
   <title>Welcome Admin</title>
-  <style type="text/css">
-    .box{
-      padding:20px;
-      margin: 10px;
-    }
-  </style>
 </head>
 <body class="bg">
   <div class="topnav pullUp">
-    <a href="?adminhome">Home</a>
-    <?php
-    if(isset($_GET['adminhome'])) {
-      header("Location: admin-index.php");
-    }
-    ?>
-    <a href="?logout">Logout</a>
-    <?php
-    if(isset($_GET['logout'])) {
-      session_unset();
-      header("Location: login-index.php");
-    }
-    ?>
     <a href="#">About</a>
     <a href="#">Help</a>
-    <a class="developedby" href="#">Developed By</a>
+    <a href="#">Developed By</a>
   </div>
   <div class="admincard-bck">
     <!--Only For Login card Background-->
   </div>
   <div class="admincard">
     <div class="tab">
-      <a class="containertitle ">Student</a>
-
+      <a class="containertitle "><?php echo $_SESSION['fname']; ?> : Attendance graph</a>
+      <div class="logout-button">
+        <a href="?logout">Logout</a>
+        <?php
+        if(isset($_GET['logout'])) {
+          session_unset();
+          header("Location: login-index.php");
+        }
+        ?>
+      </div>
+      <div class="home-button">
+        <a href="student-index.php">Home</a>
+      </div>
 
     </div>
-    <div class="box">
 
+    
+
+    <?php
+
+    $tabledisplay=$_SESSION['foundtable']."am";
+    $id=$_SESSION['id'];
+    $allstudentresult = $conn->query("SELECT * FROM `{$tabledisplay}` where userid='$id'");
+    $row=mysqli_fetch_array($allstudentresult,MYSQLI_ASSOC);
+    $idd=99;
+    $allstudentresult1 = $conn->query("SELECT * FROM `{$tabledisplay}` where userid='$idd'");
+    $row1=mysqli_fetch_array($allstudentresult1,MYSQLI_ASSOC);
+
+    ?>
+
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+      var psubj1 = <?php echo $row['subj1']; ?> ;
+      var psubj2 = <?php echo $row['subj2']; ?> ;
+      var psubj3 = <?php echo $row['subj3']; ?> ;
+      var psubj4 = <?php echo $row['subj4']; ?> ;
+      var psubj5 = <?php echo $row['subj5']; ?> ;
+      var tsubj1 = <?php echo $row1['subj1']; ?> ;
+      var tsubj2 = <?php echo $row1['subj2']; ?> ;
+      var tsubj3 = <?php echo $row1['subj3']; ?> ;
+      var tsubj4 = <?php echo $row1['subj4']; ?> ;
+      var tsubj5 = <?php echo $row1['subj5']; ?> ;
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['','Present', 'Absent', 'Total Lecture'],
+          ['Subject 1', psubj1, tsubj1-psubj1, tsubj1],
+          ['Subject 2', psubj2, tsubj2-psubj2, tsubj2],
+          ['Subject 3', psubj3, tsubj3-psubj3, tsubj3],
+          ['Subject 4', psubj4, tsubj4-psubj4, tsubj4],
+
+          ['Subject 5', psubj5, tsubj5-psubj5, tsubj5],
+          //['Subject 6', 30, 20, 50],
+
+
+          ]);
+
+        var options = {
+          chartArea:{
+            fontSize:20,
+
+          },
+
+          bars: 'vertical',
+          backgroundColor: 'none',
+          fontSize: 20,
+
+          legend:{textStyle:{fontSize:20, color: 'black'}},
+          vAxis: { format: '0', textStyle:{fontSize:20, color: 'black'}, gridlines:{count: tsubj1}},
+          hAxis: {textStyle:{fontSize:20, color: 'black'}},
+          
+          colors: ['#6fbe44', '#c5283d', '#02608e']
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('chart_div'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+
+        var btns = document.getElementById('btn-group');
+
+        btns.onclick = function (e) {
+
+          if (e.target.tagName === 'BUTTON') {
+            options.vAxis.format = e.target.id === 'none' ? '' : e.target.id;
+            chart.draw(data, google.charts.Bar.convertOptions(options));
+          }
+        }
+      }
+    </script>
+    <div id="chart_div" style="height: inherit; width: inherit; padding: 30px;" ></div>
+    <!--
+    <table>
+      <thead>
+        <tr>
+          <th>USER ID</th>
+          <th>subj1</th>
+          <th>subj2</th>
+
+          
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td><?php echo $row['userid']; ?></td>
+          <td><?php echo $row['subj1']; ?>/<?php echo $row1['subj1']; ?></td>
+          <td><?php echo $row['subj2']; ?>/<?php echo $row1['subj2']; ?></td>
+
+        </tr>
         <?php
 
-        $tabledisplay=$_SESSION['foundtable']."am";
-        $id=$_SESSION['id'];
-        $allstudentresult = $conn->query("SELECT * FROM `{$tabledisplay}` where userid='$id'");
-        $row=mysqli_fetch_array($allstudentresult,MYSQLI_ASSOC);
-        $idd=99;
-        $allstudentresult1 = $conn->query("SELECT * FROM `{$tabledisplay}` where userid='$idd'");
-        $row1=mysqli_fetch_array($allstudentresult1,MYSQLI_ASSOC);
-        $subj1=(($row['subj1']/$row1['subj1'])*450);
-        $subj2=(($row['subj2']/$row1['subj2'])*450);
-        echo $subj1;
-        echo $subj2;
+
         ?>
-
-
-        <canvas id="myCanvas" width="600" height="450"
-        style="border-left:1px solid #000000 ;border-bottom: 1px solid #000000; ">
-        Your browser does not support the canvas element.
-        </canvas>
-
-        <script>
-        var canvas = document.getElementById("myCanvas");
-        var ctx = canvas.getContext("2d");
-        ctx.fillStyle = "rgba(255, 0, 0, 0.5)";
-        var sub='<?php echo $subj1?>'
-        ctx.fillRect(59,450-sub,50,450);
-        ctx.fillStyle = "rgba(255, 255, 0, 0.5)";
-        var subj='<?php echo $subj2?>'
-        ctx.fillRect(159,450-subj,50,450);
-        ctx.fillStyle = "rgba(255, 255, 18, 0.5)";
-        ctx.fillRect(277,200,50,450);
-        ctx.fillStyle = "rgba(255, 255, 45, 0.5)";
-        ctx.fillRect(386,200,50,450);
-        ctx.fillRect(495,200,50,450);
-
-
-
-        </script>
-
-
-
-
+      </tbody>
+    </table>
+  -->
 
 </div>
-  </div>
 
 
-  <div class="footer">
-    <p> Copyright 2017. All Rights Reserved. Developed by SSA</p>
-  </div>
+<div class="footer">
+  <p> Copyright 2017. All Rights Reserved. Developed by SSA</p>
+</div>
 
 </body>
 </html>
-
-
-
-
-
-
 
