@@ -1,0 +1,150 @@
+if($year == "fe"){
+if($dept == "civil"){
+$extid = date('y')."1";
+
+
+$maxidsql = mysqli_query($conn, "SELECT MAX(id) AS maxid FROM fecivil");
+$row = mysqli_fetch_assoc($maxidsql);
+$maxid = $row['maxid']+"1";
+$maxid_padded = sprintf("%03d", $maxid);
+
+$sql = "INSERT INTO fecivil (userid,password,fname,mname,lname) VALUES (concat('$extid','$maxid_padded'),'$password','$fname','$mname','$lname')";
+if ($conn->query($sql) === TRUE) {
+echo "New record created successfully at $extid$maxid_padded";
+} else {
+echo "Error: " . $sql . "<br>" . $conn->error;
+}
+}
+elseif ($dept == "computer") {
+$extid = date('y')."2";
+
+
+$maxidsql = mysqli_query($conn, "SELECT MAX(id) AS maxid FROM fecomp");
+$row = mysqli_fetch_assoc($maxidsql);
+$maxid = $row['maxid']+"1";
+
+$sql = "INSERT INTO fecomp (userid,password,fname,mname,lname) VALUES (concat('$extid','$maxid'),'$password','$fname','$mname','$lname')";
+if ($conn->query($sql) === TRUE) {
+echo "New record created successfully at $extid$maxid";
+} else {
+echo "Error: " . $sql . "<br>" . $conn->error;
+}
+# code...
+}
+elseif ($dept == "it") {
+$extid = date('y')."3";
+
+
+$maxidsql = mysqli_query($conn, "SELECT MAX(id) AS maxid FROM feit");
+$row = mysqli_fetch_assoc($maxidsql);
+$maxid = $row['maxid']+"1";
+
+$sql = "INSERT INTO feit (userid,password,fname,mname,lname) VALUES (concat('$extid','$maxid'),'$password','$fname','$mname','$lname')";
+if ($conn->query($sql) === TRUE) {
+echo "New record created successfully at $extid$maxid";
+} else {
+echo "Error: " . $sql . "<br>" . $conn->error;
+}
+# code...
+}
+}
+
+
+
+
+
+
+
+
+
+
+else {
+$sql = "SELECT * FROM fecivil where userid='$id' and password='$password'";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+session_start();
+$_SESSION['id']=$id;
+$_SESSION['asi'] = 1;
+$row = mysqli_fetch_array($result);
+$_SESSION['username']=$row['fname']." ".$row['mname']." ".$row['lname'];
+header("Location: student-index.php");
+}
+else {
+$sql = "SELECT * FROM fecomp where userid='$id' and password='$password'";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+session_start();
+$_SESSION['id']=$id;
+$_SESSION['asi'] = 1;
+$row = mysqli_fetch_array($result);
+$_SESSION['username']=$row['fname']." ".$row['mname']." ".$row['lname'];
+header("Location: student-index.php");
+}
+else{
+$sql = "SELECT * FROM feit where userid='$id' and password='$password'";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+session_start();
+$_SESSION['id']=$id;
+$_SESSION['asi'] = 1;
+$row = mysqli_fetch_array($result);
+$_SESSION['username']=$row['fname']." ".$row['mname']." ".$row['lname'];
+header("Location: student-index.php");
+}
+else{
+$sql = "SELECT * FROM teacher where id='$id' and password='$password'";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+session_start();
+$_SESSION['ati'] = 1;
+$_SESSION['id']=$id;
+$row = mysqli_fetch_array($result);
+$_SESSION['username']=$row['fname'];
+$sql = "SELECT * FROM users ";
+$result = $conn->query($sql);
+$_SESSION['users']=$result->num_rows;
+header("Location: teacher-index.php");
+}
+else{
+session_start();
+$_SESSION['login-error'] = '*invalid details';
+header("Location: login-index.php");
+}
+
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$result = $conn->query("SHOW TABLES from erp");
+$tables="";
+$i=0;
+while ($row = mysqli_fetch_array($result)) {
+$tables = $row[$i];
+$search_sql = "SELECT * FROM `{$tables}` where userid='$id' and password='$password'";
+$search_result = $conn->query($search_sql);
+if ($search_result->num_rows > 0) {
+$table_found = $tables;
+}
+}
+$table_found_sql = "SELECT * FROM `{$table_found}` where userid='$id' and password='$password'";
+$table_found_result = $conn->query($table_found_sql);
+if ($table_found_result->num_rows > 0) {
+session_start();
+$_SESSION['id']=$id;
+$_SESSION['asi'] = 1;
+$row = mysqli_fetch_array($table_found_result);
+$_SESSION['username']=$row['fname']." ".$row['mname']." ".$row['lname'];
+header("Location: student-index.php");
+}

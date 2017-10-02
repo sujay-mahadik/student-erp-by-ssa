@@ -37,7 +37,7 @@ session_start();
 			</div>
 
 		</div>
-		<form action="update-profile.php" method="post">
+		<form action="update-profile.php" method="post" enctype="multipart/form-data">
 			<ul class="form-style">
 
 				<li><label>Full Name <span class="required">*</span></label>
@@ -53,7 +53,7 @@ session_start();
 					<label>Email <span class="required">*</span></label>
 					<input type="email" placeholder="Email Address" name="email" class="field-long" required="required" value=<?php echo $_SESSION['email']?>>
 				</li>
-				
+
 				<li><label>Date of Birth</label>
 					<select name="dobday">
 						<option> - day - </option>
@@ -137,7 +137,7 @@ session_start();
 				</li>
 				<label>Photo Link </label>
 				<li>
-					<input type="text" name="imagelink" placeholder="Photo Link" value="">
+					<input type="file" name="myfile">
 				</li>
 				<li>
 					<div class="submit">
