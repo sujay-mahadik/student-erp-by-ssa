@@ -23,16 +23,10 @@ $row = mysqli_fetch_array($admininfoquery);
 </head>
 <body class="bg">
     <div class="topnav pullUp">
-        <a href="?logout">Logout</a>
-        <?php
-        if(isset($_GET['logout'])) {
-            session_unset();
-            header("Location: login-index.php");
-        }
-        ?>
+        
         <a href="#">About</a>
         <a href="#">Help</a>
-        <a class="developedby" href="#">Developed By</a>
+        <a href="#">Developed By</a>
     </div>
     <div class="admincard-bck">
         <!--Only For Login card Background-->

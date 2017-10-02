@@ -31,7 +31,7 @@ if (!isset($_SESSION['asi']))
   </div>
   <div class="admincard">
     <div class="tab">
-      <a class="containertitle "><?php echo $_SESSION['username']; ?> : Attendance graph</a>
+      <a class="containertitle "><?php echo $_SESSION['fname']; ?> : Attendance graph</a>
       <div class="logout-button">
         <a href="?logout">Logout</a>
         <?php
@@ -66,8 +66,14 @@ if (!isset($_SESSION['asi']))
       google.charts.setOnLoadCallback(drawChart);
       var psubj1 = <?php echo $row['subj1']; ?> ;
       var psubj2 = <?php echo $row['subj2']; ?> ;
+      var psubj3 = <?php echo $row['subj3']; ?> ;
+      var psubj4 = <?php echo $row['subj4']; ?> ;
+      var psubj5 = <?php echo $row['subj5']; ?> ;
       var tsubj1 = <?php echo $row1['subj1']; ?> ;
       var tsubj2 = <?php echo $row1['subj2']; ?> ;
+      var tsubj3 = <?php echo $row1['subj3']; ?> ;
+      var tsubj4 = <?php echo $row1['subj4']; ?> ;
+      var tsubj5 = <?php echo $row1['subj5']; ?> ;
 
       function drawChart() {
 
@@ -75,11 +81,11 @@ if (!isset($_SESSION['asi']))
           ['','Present', 'Absent', 'Total Lecture'],
           ['Subject 1', psubj1, tsubj1-psubj1, tsubj1],
           ['Subject 2', psubj2, tsubj2-psubj2, tsubj2],
-          ['Subject 3', psubj1, tsubj1-psubj1, tsubj1],
-          ['Subject 4', psubj2, tsubj2-psubj2, tsubj2],
+          ['Subject 3', psubj3, tsubj3-psubj3, tsubj3],
+          ['Subject 4', psubj4, tsubj4-psubj4, tsubj4],
 
-          ['Subject 5', psubj1, tsubj1-psubj1, tsubj1],
-          ['Subject 6', 30, 20, 50],
+          ['Subject 5', psubj5, tsubj5-psubj5, tsubj5],
+          //['Subject 6', 30, 20, 50],
 
 
           ]);

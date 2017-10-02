@@ -48,70 +48,70 @@ $_SESSION['subj']=$_POST['subj'];
 </head>
 <body class="bg">
   <div class="topnav pullUp">
-    <a href="?adminhome">Home</a>
-    <?php
-    if(isset($_GET['adminhome'])) {
-      header("Location: admin-index.php");
-    }
-    ?>
-    <a href="?logout">Logout</a>
-    <?php
-    if(isset($_GET['logout'])) {
-      session_unset();
-      header("Location: login-index.php");
-    }
-    ?>
+
     <a href="#">About</a>
     <a href="#">Help</a>
-    <a class="developedby" href="#">Developed By</a>
+    <a href="#">Developed By</a>
   </div>
   <div class="admincard-bck">
     <!--Only For Login card Background-->
   </div>
   <div class="admincard">
     <div class="tab">
-      <a class="containertitle ">Student</a>
-      <button class="tablinks" onclick="opentab(event, 'Add')" id="<?php echo $_SESSION['add']?>"></button>
+      <a class="containertitle ">Mark Attendance</a>
+      <div class="logout-button">
+        <a href="?logout">Logout</a>
+        <?php
+        if(isset($_GET['logout'])) {
+          session_unset();
+          header("Location: login-index.php");
+        }
+        ?>
+      </div>
+      <div class="home-button">
+        <a href="teacher-index.php">Home</a>
+      </div>
 
     </div>
-    
-    <form action="trial.php" method="post">
-      <table>
-        <thead>
-          <tr>
-            <th>USER ID</th>
-            <th>NAME</th>
-            <th>Present/absent</th>
-
-          </tr>
-        </thead>
-        <tbody>
-          <?php
-
-          $tabledisplay=$_SESSION['tabledsp'];
-          $allstudentresult = $conn->query("SELECT * FROM `{$tabledisplay}` ");
-          while($row=mysqli_fetch_array($allstudentresult,MYSQLI_ASSOC))
-          {
-            ?>
+    <div class="att-list">
+      <form action="trial.php" method="post">
+        <table>
+          <thead>
             <tr>
-              <td><?php echo $row['userid']; ?></td>
-              <td><?php echo $row['fname']." ".$row['mname']." ".$row['lname']; ?></td>
-              <td><input type="checkbox" name="<?php echo $row['userid']; ?>" ></td>
+              <th class="attendance">USER ID</th>
+              <th class="attendance">NAME</th>
+              <th class="attendance">Mark Present</th>
 
             </tr>
+          </thead>
+          <tbody>
             <?php
-          }
 
-          ?>
-        </tbody>
-      </table>
-      <ul>
-        <div class="submit">
+            $tabledisplay=$_SESSION['tabledsp'];
+            $allstudentresult = $conn->query("SELECT * FROM `{$tabledisplay}` ");
+            while($row=mysqli_fetch_array($allstudentresult,MYSQLI_ASSOC))
+            {
+              ?>
+              <tr>
+                <td class="row-userid"><?php echo $row['userid']; ?></td>
+                <td class="row-name"><?php echo $row['fname']." ".$row['mname']." ".$row['lname']; ?></td>
+                
+                <td><input type="checkbox" name="<?php echo $row['userid']; ?>" id="<?php echo $row['userid']; ?>" class="css-checkbox" /><label for="<?php echo $row['userid']; ?>" class="css-label"></label></td>
+              </tr>
+              <?php
+            }
+
+            ?>
+          </tbody>
+        </table>
+        
+        <div class="submit attendance-submit">
           <button type="submit" >SUBMIT</button>
         </div>
-      </ul>
-      
-    </form>
+        
+        
+      </form>
+    </div>
 
   </div>
 

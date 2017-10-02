@@ -44,7 +44,7 @@ $_SESSION['image']=$row['image'];
     </div>
     <div class="admincard">
         <form action="">
-            <div class="containertitle"><div class="profile-image" style="background-image: url(<?php echo $_SESSION['image'];?>); background-repeat: no-repeat;background-position: center;">
+            <div class="containertitle"><div class="profile-image" style="background-image: url('<?php echo $_SESSION['image'];?>'); background-repeat: no-repeat;background-position: center;">
             </div>WELCOME <?php echo $row['fname']; ?>
             <div class="logout-button">
               <a href="?logout">Logout</a>
@@ -61,15 +61,23 @@ $_SESSION['image']=$row['image'];
                     <!--<div class="pic" style="background-image: url(<?php echo $_SESSION['profile_img'];?>); background-repeat: no-repeat;background-position: center; ">
                     </div>-->
                     <div class="tabinfo">
-                     <li>
+                       <li>
                         Name: <?php echo $row['fname']." ".$row['mname']." ".$row['lname']; ?>
                     </li>
+                    <br>
                     <li>
                         Email: <?php echo $row['email']; ?>
                     </li>
+                    <br>
                     <li>
                         Address: <?php echo $row['address']; ?>
                     </li>
+                    <br>
+                    
+
+
+                    
+
 
                 </div>
             </div>
@@ -86,6 +94,12 @@ $_SESSION['image']=$row['image'];
         </div>
         <div class="container-tabs">
             <div class="tabs">
+                <div class="updateprofile ">
+                    <a href="update-profile-student.php">Edit Profile</a>
+                </div>
+                <div class="updatepassword">
+                    <a href="#">Change Password</a>
+                </div>
             </div>
             <div class="tabs">
                 <div id="tab-click" class="tabss orange fees-icon">
@@ -94,7 +108,7 @@ $_SESSION['image']=$row['image'];
                 </div>
                 <div id="tab-click" class="tabss green notes-icon">
                     <h1>My Notes</h1>
-                    <a href="update-profile-student.php"><span></span></a>
+                    <a href="download-php.php"><span></span></a>
                 </div>
             </div>
         </div>

@@ -33,11 +33,11 @@ session_start();
 				?>
 			</div>
 			<div class="home-button">
-				<a href="teacher-index.php">Home</a>
+				<a href="student-index.php">Home</a>
 			</div>
 
 		</div>
-		<form action="add-student-php.php" method="post">
+		<form action="update-profile.php" method="post">
 			<ul class="form-style">
 
 				<li><label>Full Name <span class="required">*</span></label>
@@ -47,7 +47,7 @@ session_start();
 				</li>
 				<li><label>Residential address<span class="required">*</span></label>
 					<!-- <input type="text" name="uid" class="field-divided" placeholder="Roll Number" /> -->
-					<input type="text" name="address" class="field-long" placeholder="Address along with pincode" required="required" value=<?php echo $_SESSION['address']?>>
+					<input type="text" name="address" class="field-long" placeholder="Address along with pincode" required="required" value='<?php echo $_SESSION['address']; ?>'>
 				</li>
 				<li>
 					<label>Email <span class="required">*</span></label>
@@ -134,6 +134,10 @@ session_start();
 						<option value="1980">1980</option>
 						<option value="1979">1979</option>
 					</select>
+				</li>
+				<label>Photo Link </label>
+				<li>
+					<input type="text" name="imagelink" placeholder="Photo Link" value="">
 				</li>
 				<li>
 					<div class="submit">

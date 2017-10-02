@@ -75,12 +75,12 @@ $newtable = "CREATE TABLE If NOT EXISTS `{$table}` (
 if($conn->query($newtable)===TRUE){
 	$start=$cyear.$deptid."001";
 
-	$startset="alter table `{$table}` AUTO_INCREMENT=".$start."";
+	$startset="ALTER TABLE `{$table}` AUTO_INCREMENT=".$start."";
 	$conn->query($startset);
 }
 //attendacne table
 
-$sql = "INSERT INTO `{$table}` (password,fname,mname,lname,address,email,year,dept,examfees,libraryfine,otherfees) VALUES ('$password','$fname','$mname','$lname','$address','$email','$year','$dept','$examfees','$libraryfine','$otherfees')";
+$sql = "INSERT INTO `{$table}` (password,fname,mname,lname,address,email,year,dept) VALUES ('$password','$fname','$mname','$lname','$address','$email','$year','$dept')";
 $tableat=$cyear.$dept."am";
 if ($conn->query($sql) === TRUE) {
 	$maxuseridsql = mysqli_query($conn, "SELECT MAX(userid) AS maxuserid FROM `{$table}`");
@@ -92,14 +92,22 @@ if ($conn->query($sql) === TRUE) {
 	{
 		
 		$newtableattendance = "CREATE TABLE If NOT EXISTS `{$tableat}` (
-		`userid` int(11),
+		`userid` int(11), 
 		`subj1` int DEFAULT 0,
-		`subj2` int DEFAULT 0
+		`subj2` int DEFAULT 0,
+		`subj3` int DEFAULT 0,
+		`subj4` int DEFAULT 0,
+		`subj5` int DEFAULT 0
+		
 	)";
 	if($conn->query($newtableattendance)===TRUE){
 		$sql="INSERT into `{$tableat}`(userid) values (99)";
 		$conn->query($sql);
+		
 	}
+	//$startset="ALTER TABLE `{$tableat}` ADD FOREIGN KEY (`userid`) REFERENCES `{$table}` (`userid`) ON DELETE CASCADE; ";
+	//$conn->query($startset);
+	
 
 }
 echo $last;

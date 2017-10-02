@@ -78,27 +78,27 @@ else {
         <ul class="form-style">
 
           <li><label>Full Name <span class="required">*</span></label>
-            <input type="text" name="firstname" class="field-divided" placeholder="First" required="required" >
+            <input type="text" name="firstname" class="field-divided" placeholder="First" required="required" title="Firstname required" >
             <input type="text" name="middlename" class="field-divided" placeholder="Middle"  >
             <input type="text" name="lastname" class="field-divided" placeholder="Last"  >
           </li>
-          <li><label>Residential address<span class="required">*</span></label>
+          <li><label>Residential address<span class="required" >*</span></label>
             <!-- <input type="text" name="uid" class="field-divided" placeholder="Roll Number" /> -->
-            <input type="text" name="address" class="field-long" placeholder="Address along with pincode" required="required">
+            <input type="text" name="address" class="field-long" placeholder="Address along with pincode" required="required" title="Address required">
           </li>
           <li>
             <label>Email <span class="required">*</span></label>
-            <input type="email" placeholder="Email Address" name="email" class="field-long" required="required">
+            <input type="email" placeholder="Email Address" name="email" class="field-long" required="required" title="Email required">
           </li>
           <li>
             <label>Academic Details <span class="required">*</span></label>
-            <select name="year" class="field-select-divided dropdown-button" required="required">
+            <select name="year" class="field-select-divided dropdown-button" required="required" title="Year required">
               <option value="">--select year--</option>
               <option value="fe">FE</option>
               <option value="se">SE</option>
               <option value="te">TE</option>
             </select>
-            <select name="dept" class="field-select-divided dropdown-button" required="required">
+            <select name="dept" class="field-select-divided dropdown-button" required="required" title="Department required">
               <option value="">--select department--</option>
               <option value="it">IT</option>
               <option value="entc">ENTC</option>
@@ -253,17 +253,17 @@ else {
       <form action="update-student-php.php" method="post">
         <ul class="form-style">
           <li><label>Full Name <span class="required">*</span></label>
-            <input type="text" name="ufirstname" class="field-divided" value="<?php echo "$ufname"; ?>" required="required"/>
+            <input type="text" name="ufirstname" class="field-divided" value="<?php echo "$ufname"; ?>" required="required" title="Firstname required"/>
             <input type="text" name="umiddlename" class="field-divided" value="<?php echo "$umname"; ?>" />
             <input type="text" name="ulastname" class="field-divided" value="<?php echo "$ulname"; ?>" />
           </li>
           <li><label>Residential address<span class="required">*</span></label>
             <!-- <input type="text" name="uid" class="field-divided" placeholder="Roll Number" /> -->
-            <input type="text" name="uaddress" class="field-long" value="<?php echo "$uaddress"; ?>" required="required" >
+            <input type="text" name="uaddress" class="field-long" value="<?php echo "$uaddress"; ?>" required="required" title="Address required">
           </li>
           <li>
             <label>Email <span class="required">*</span></label>
-            <input type="email" name="uemail" class="field-long" value="<?php echo "$uemail"; ?>" required="required">
+            <input type="email" name="uemail" class="field-long" value="<?php echo "$uemail"; ?>" required="required" title="Email required">
           </li>
     <!-- <li>
       <label>Academic Details <span class="required">*</span></label>

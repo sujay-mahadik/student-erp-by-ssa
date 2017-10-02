@@ -83,7 +83,7 @@ $row = mysqli_fetch_array($admininfoquery);
                 </div>
                 <div id="tab-click" class="tabss green notes-icon">
                     <h1>Upload Notes</h1>
-                    <a href="#"><span></span></a>
+                    <a href="upload.php"><span></span></a>
                 </div>
             </div>
         </div>
