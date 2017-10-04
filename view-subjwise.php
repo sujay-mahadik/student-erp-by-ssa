@@ -2,9 +2,13 @@
 include_once"includes/db_connect.php";
 session_start();
 
-if (!isset($_SESSION['asi']))
-  header("Location: login-index.php");
+if(isset($_GET["table"]) && isset($_GET["id"]))
+    {
+        $tabledisplay = $_GET["table"];
+        $id = $_GET["id"];
+        $name=$_GET["name"];
 
+    }
 
 ?>
 
@@ -31,7 +35,7 @@ if (!isset($_SESSION['asi']))
   </div>
   <div class="admincard">
     <div class="tab">
-      <a class="containertitle "><?php echo $_SESSION['fname']; ?> : Attendance graph</a>
+      <a class="containertitle "><?php echo $name; ?> : Attendance graph</a>
       <div class="logout-button">
         <a href="?logout">Logout</a>
         <?php
@@ -47,10 +51,11 @@ if (!isset($_SESSION['asi']))
 
     </div>
 
+
+
     <?php
 
-    $tabledisplay=$_SESSION['foundtable']."am";
-    $id=$_SESSION['id'];
+
     $allstudentresult = $conn->query("SELECT * FROM `{$tabledisplay}` where userid='$id'");
     $row=mysqli_fetch_array($allstudentresult,MYSQLI_ASSOC);
     $idd=99;

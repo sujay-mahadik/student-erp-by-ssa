@@ -17,7 +17,8 @@ $row = mysqli_fetch_array($admininfoquery);
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/teacher-index.css">
-    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet"> 
+
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
 
     <link rel="shortcut icon" href="images/sis-favicon.ico" type="image/x-icon">
     <title>Teacher</title>
@@ -78,8 +79,8 @@ $row = mysqli_fetch_array($admininfoquery);
             </div>
             <div class="tabs">
                 <div id="tab-click" class="tabss orange marks-icon">
-                    <h1>Update Marks</h1>
-                    <a href="#"><span></span></a>
+                    <h1>View Overall Attendance</h1>
+                    <a href="view-overall.php"><span></span></a>
                 </div>
                 <div id="tab-click" class="tabss green notes-icon">
                     <h1>Upload Notes</h1>
