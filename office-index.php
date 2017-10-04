@@ -2,13 +2,12 @@
 include_once 'includes/db_connect.php';
 
 session_start();
-
-if (!isset($_SESSION['ati'])){
+if (!isset($_SESSION['aoi'])){
     header("Location: login-index.php");
 }
 $_SESSION['logedout']="*You have been logged out";
 $userid = $_SESSION['id'];
-$admininfo="SELECT * FROM teacher WHERE userid = '$userid'";
+$admininfo="SELECT * FROM office WHERE userid = '$userid'";
 $admininfoquery =  $conn->query($admininfo);
 $row = mysqli_fetch_array($admininfoquery);
 ?>
@@ -17,14 +16,14 @@ $row = mysqli_fetch_array($admininfoquery);
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/teacher-index.css">
-    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet"> 
 
     <link rel="shortcut icon" href="images/sis-favicon.ico" type="image/x-icon">
     <title>Teacher</title>
 </head>
 <body class="bg">
     <div class="topnav pullUp">
-
+        
         <a href="#">About</a>
         <a href="#">Help</a>
         <a href="#">Developed By</a>
@@ -63,31 +62,39 @@ $row = mysqli_fetch_array($admininfoquery);
                 </div>
             </div>
             <div class="tabs">
-                <div id="tab-click" class="tabss blue tt-icon">
-                    <h1>View TimeTable</h1>
-                    <a href="#"><span></span></a>
-                </div>
-                <div id="tab-click" class="tabss red attend-icon">
-                    <h1>Mark Attendance</h1>
-                    <a href="attendance.php"><span></span></a>
-                </div>
+
+                <div id="tab-click" class="tabss blue fees-icon">
+                    <h1>Fees/Fines</h1>
+                    <a href="?feesfines"><span></span></a>
+                    <?php
+                    if(isset($_GET['feesfines'])) {
+                      $_SESSION['feesfines'] = 1;
+                      header("Location: office-fees.php ");
+                      unset($_GET['feesfines']);
+                  }
+                  ?>
+              </div>
+              <div id="tab-click" class="tabss red money-icon">
+                <h1>Collect Fees/Fines</h1>
+                <a href="#"><span></span></a>
             </div>
         </div>
-        <div class="container-tabs">
-            <div class="tabs">
+    </div>
+    <div class="container-tabs">
+        <div class="tabs">
+        </div>
+        <div class="tabs">
+            <div id="tab-click" class="tabss orange marks-icon">
+                <h1>Update Marks</h1>
+                <a href="#"><span></span></a>
             </div>
-            <div class="tabs">
-                <div id="tab-click" class="tabss orange marks-icon">
-                    <h1>View Overall Attendance</h1>
-                    <a href="view-overall.php"><span></span></a>
-                </div>
-                <div id="tab-click" class="tabss green notes-icon">
-                    <h1>Upload Notes</h1>
-                    <a href="upload.php"><span></span></a>
-                </div>
+            <div id="tab-click" class="tabss green notes-icon">
+                <h1>Upload Notes</h1>
+                <a href="#"><span></span></a>
             </div>
         </div>
-    </form>
+    </div>
+</form>
 </div>
 <?php unset($_SESSION['loggedin']); ?>
 <div class="footer">
