@@ -1,7 +1,7 @@
 <?php
 include_once 'includes/db_connect.php';
 session_start();
-
+ $_SESSION['passmsg']="";
 if (!isset($_SESSION['asi'])){
     header("Location: login-index.php");
 }
@@ -21,6 +21,7 @@ $_SESSION['libraryfine']=$row['libraryfine'];
 $_SESSION['otherfees']=$row['otherfees'];
 $_SESSION['totalfees']=$row['examfees']+$row['libraryfine']+$row['otherfees'];
 $_SESSION['image']=$row['image'];
+$_SESSION['pass']=$row['password'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,7 +29,7 @@ $_SESSION['image']=$row['image'];
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="css/student-index.css">
-  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
 
   <link rel="shortcut icon" href="images/sis-favicon.ico" type="image/x-icon">
   <title>Student</title>
@@ -73,10 +74,10 @@ $_SESSION['image']=$row['image'];
                         Address: <?php echo $row['address']; ?>
                     </li>
                     <br>
-                    
 
 
-                    
+
+
 
 
                 </div>
@@ -98,7 +99,7 @@ $_SESSION['image']=$row['image'];
                     <a href="update-profile-student.php">Edit Profile</a>
                 </div>
                 <div class="updatepassword">
-                    <a href="#">Change Password</a>
+                    <a href="change-password.php">Change Password</a>
                 </div>
             </div>
             <div class="tabs">

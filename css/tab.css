@@ -201,6 +201,7 @@ div.pullUp a.active:before {
 }
 .form-style input[type=text],
 .form-style input[type=email],
+.form-style input[type=password],
 select {
 	font-family: robotolight;
 	font-size: 18px;
@@ -222,6 +223,7 @@ select {
 }
 .form-style input[type=text]:focus,
 .form-style input[type=email]:focus,
+.form-style input[type=password]:focus,
 .form-style select:focus {
 	border: 0;
 	border-bottom: 2px solid #01354f;
@@ -408,7 +410,7 @@ input[type=checkbox].css-checkbox {
 
 input[type=checkbox].css-checkbox + label.css-label {
 	padding-left:30px;
-	height:25px; 
+	height:25px;
 	display:inline-block;
 	line-height:25px;
 	background-repeat:no-repeat;
