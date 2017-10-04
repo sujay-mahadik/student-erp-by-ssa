@@ -137,7 +137,7 @@ session_start();
 				</li>
 				<label>Photo Link </label>
 				<li>
-					<input type="file" name="myfile">
+					<input type="file" name="myfile" accept="image/*">
 				</li>
 				<li>
 					<div class="submit">
