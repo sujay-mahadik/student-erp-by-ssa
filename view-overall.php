@@ -58,15 +58,7 @@ if (!isset($_SESSION['ati'])){
             <option value="entc">ENTC</option>
             <option value="mechanical">Mechanical</option>
           </select>
-          <select name="subj" class="field-select-divided dropdown-button" required="required">
-            <option value="">--select subj--</option>
-            <option value="overall">View Overall</option>
-            <option value="subj1">SUBJECT1</option>
-            <option value="subj2">SUBJECT2</option>
-            <option value="subj3">SUBJECT3</option>
-            <option value="subj4">SUBJECT4</option>
-            <option value="subj5">SUBJECT5</option>
-          </select>
+
             <!-- <select name="pattern" class="field-select-divided dropdown-button">
               <option value="">--select pattern--</option>
               <option value="12">FE2012 Pattern</option>

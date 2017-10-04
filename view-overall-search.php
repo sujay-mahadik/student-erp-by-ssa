@@ -37,7 +37,7 @@ else{
 }
 $_SESSION['tabledsp']=$cyear.$dept."db";
 $_SESSION['tablemrk']=$cyear.$dept."am";
-$_SESSION['subj']=$_POST['subj'];
+
 ?>
 <!DOCTYPE html>
 <html>
