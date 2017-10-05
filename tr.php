@@ -1,6 +1,9 @@
 <?php
 include_once 'includes/db_connect.php';
 session_start();
+if (!isset($_SESSION['ati'])){
+  header("Location: login-index.php");
+}
 $year=$_POST["year"];
 $dept=$_POST["dept"];
 if($dept == "civil"){
@@ -95,7 +98,7 @@ $_SESSION['subj']=$_POST['subj'];
               <tr>
                 <td class="row-userid"><?php echo $row['userid']; ?></td>
                 <td class="row-name"><?php echo $row['fname']." ".$row['mname']." ".$row['lname']; ?></td>
-                
+
                 <td><input type="checkbox" name="<?php echo $row['userid']; ?>" id="<?php echo $row['userid']; ?>" class="css-checkbox" /><label for="<?php echo $row['userid']; ?>" class="css-label"></label></td>
               </tr>
               <?php
@@ -104,12 +107,12 @@ $_SESSION['subj']=$_POST['subj'];
             ?>
           </tbody>
         </table>
-        
+
         <div class="submit attendance-submit">
           <button type="submit" >SUBMIT</button>
         </div>
-        
-        
+
+
       </form>
     </div>
 

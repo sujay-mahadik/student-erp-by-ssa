@@ -1,7 +1,9 @@
 <?php
 include_once 'includes/db_connect.php';
 session_start();
-
+if (!isset($_SESSION['ati'])){
+    header("Location: login-index.php");
+}
 $doc_name =$_POST['doc_name'];
 echo $doc_name;
 $name =$_FILES['myfile']['name'];

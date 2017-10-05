@@ -24,7 +24,7 @@ $tablecreate="CREATE TABLE IF NOT EXISTS office (
 `email` varchar(50) NOT NULL,
 `post`  varchar(50) NOT NULL,
 `balance` int(10) NOT NULL,
-`image` varchar(1024)
+`image` varchar(1024) default 'profile-image/default.png'
 )";
 if($conn->query($tablecreate)===TRUE){
     $start="301";

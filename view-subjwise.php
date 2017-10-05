@@ -1,7 +1,9 @@
 <?php
 include_once"includes/db_connect.php";
 session_start();
-
+if (!isset($_SESSION['ati'])){
+    header("Location: login-index.php");
+}
 if(isset($_GET["table"]) && isset($_GET["id"]))
 {
   $tabledisplay = $_GET["table"];
