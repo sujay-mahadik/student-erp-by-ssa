@@ -3,12 +3,12 @@ include_once"includes/db_connect.php";
 session_start();
 
 if(isset($_GET["table"]) && isset($_GET["id"]))
-    {
-        $tabledisplay = $_GET["table"];
-        $id = $_GET["id"];
-        $name=$_GET["name"];
+{
+  $tabledisplay = $_GET["table"];
+  $id = $_GET["id"];
+  $name=$_GET["name"];
 
-    }
+}
 
 ?>
 
@@ -41,7 +41,7 @@ if(isset($_GET["table"]) && isset($_GET["id"]))
         <?php
         if(isset($_GET['logout'])) {
           session_unset();
-          header("Location: login-index.php");
+          header("Location: teacher-index.php");
         }
         ?>
       </div>
