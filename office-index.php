@@ -16,14 +16,14 @@ $row = mysqli_fetch_array($admininfoquery);
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/teacher-index.css">
-    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
 
     <link rel="shortcut icon" href="images/sis-favicon.ico" type="image/x-icon">
     <title>Teacher</title>
 </head>
 <body class="bg">
     <div class="topnav pullUp">
-        
+
         <a href="#">About</a>
         <a href="#">Help</a>
         <a href="#">Developed By</a>
@@ -53,9 +53,11 @@ $row = mysqli_fetch_array($admininfoquery);
                       <li>
                         <b>Name:</b> <?php echo $row['fname']." ".$row['mname']." ".$row['lname']; ?>
                     </li>
+                    <br>
                     <li>
                         <b>Email:</b> <?php echo $row['email']; ?>
                     </li>
+                    <br>
                     <li>
                         <b>Address:</b> <?php echo $row['address']; ?>
                     </li>
@@ -76,7 +78,7 @@ $row = mysqli_fetch_array($admininfoquery);
               </div>
               <div id="tab-click" class="tabss red money-icon">
                 <h1>Collect Fees/Fines</h1>
-                <a href="#"><span></span></a>
+                <a href="office-fees.php"><span></span></a>
             </div>
         </div>
     </div>
@@ -85,11 +87,11 @@ $row = mysqli_fetch_array($admininfoquery);
         </div>
         <div class="tabs">
             <div id="tab-click" class="tabss orange marks-icon">
-                <h1>Update Marks</h1>
+                <h1>*For further use*</h1>
                 <a href="#"><span></span></a>
             </div>
             <div id="tab-click" class="tabss green notes-icon">
-                <h1>Upload Notes</h1>
+                <h1>*For further use*</h1>
                 <a href="#"><span></span></a>
             </div>
         </div>

@@ -22,7 +22,7 @@ $tablecreate="CREATE TABLE IF NOT EXISTS teacher (
 `address` varchar(100) NOT NULL,
 `email` varchar(50) NOT NULL,
 `dept`  varchar(50) NOT NULL,
-`image` varchar(1024)
+`image` varchar(1024) default 'profile-image/default.png'
 )";
 if($conn->query($tablecreate)===TRUE){
     $start="201";
