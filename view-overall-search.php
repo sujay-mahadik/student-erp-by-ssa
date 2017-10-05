@@ -1,6 +1,9 @@
 <?php
 include_once 'includes/db_connect.php';
 session_start();
+if (!isset($_SESSION['ati'])){
+    header("Location: login-index.php");
+}
 $year=$_POST["year"];
 $dept=$_POST["dept"];
 if($dept == "civil"){

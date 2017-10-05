@@ -1,47 +1,45 @@
 <?php
 include_once 'includes/db_connect.php';
 session_start();
-
+if (!isset($_SESSION['ati'])){
+  header("Location: login-index.php");
+}
 ?>
-
-
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/tab.css">
   <link rel="shortcut icon" href="images/sis-favicon.ico" type="image/x-icon">
   <title>Welcome Admin</title>
 </head>
 <body class="bg">
   <div class="topnav pullUp">
-    <a href="?adminhome">Home</a>
-    <?php
-    if(isset($_GET['adminhome'])) {
-      header("Location: admin-index.php");
-    }
-    ?>
-    <a href="?logout">Logout</a>
-    <?php
-    if(isset($_GET['logout'])) {
-      session_unset();
-      header("Location: login-index.php");
-    }
-    ?>
     <a href="#">About</a>
     <a href="#">Help</a>
-    <a class="developedby" href="#">Developed By</a>
+    <a  href="#">Developed By</a>
   </div>
   <div class="admincard-bck">
     <!--Only For Login card Background-->
   </div>
   <div class="admincard">
     <div class="tab">
-      <a class="containertitle ">Student</a>
-
+      <a class="containertitle ">Select class and subject</a>
+      <div class="logout-button">
+        <a href="?logout">Logout</a>
+        <?php
+        if(isset($_GET['logout'])) {
+          session_unset();
+          header("Location: login-index.php");
+        }
+        ?>
+      </div>
+      <div class="home-button">
+        <a href="teacher-index.php">Home</a>
+      </div>
 
     </div>
-
-    <form action="upload-php.php" method="post" enctype="multipart/form-data">
+     <form action="upload-php.php" method="post" enctype="multipart/form-data">
       <ul class="form-style">
 
         <?php echo $_SESSION['fuploadedmsg']?>
@@ -85,18 +83,9 @@ session_start();
 
       </ul>
     </form>
-
-  </div>
-
-
-  <div class="footer">
-    <p> Copyright 2017. All Rights Reserved. Developed by SSA</p>
-  </div>
-
-</body>
-</html>
-
-
-
-
-
+    </div>
+    <div class="footer">
+      <p> Copyright 2017. All Rights Reserved. Developed by SSA</p>
+    </div>
+  </body>
+  </html>

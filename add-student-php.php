@@ -65,7 +65,7 @@ $newtable = "CREATE TABLE If NOT EXISTS `{$table}` (
 `email`	varchar(50) NOT NULL,
 `year`  varchar(50) NOT NULL,
 `dept`  varchar(50) NOT NULL,
-`image` varchar(1024),
+`image` varchar(1024) default 'profile-image/default.png',
 `examfees` int(10),
 `libraryfine` int(10),
 `otherfees` int(10),
@@ -90,24 +90,24 @@ if ($conn->query($sql) === TRUE) {
 	$last=substr($maxuserid, -3);
 	if($last=="001")
 	{
-		
+
 		$newtableattendance = "CREATE TABLE If NOT EXISTS `{$tableat}` (
-		`userid` int(11), 
+		`userid` int(11),
 		`subj1` int DEFAULT 0,
 		`subj2` int DEFAULT 0,
 		`subj3` int DEFAULT 0,
 		`subj4` int DEFAULT 0,
 		`subj5` int DEFAULT 0
-		
+
 	)";
 	if($conn->query($newtableattendance)===TRUE){
 		$sql="INSERT into `{$tableat}`(userid) values (99)";
 		$conn->query($sql);
-		
+
 	}
 	//$startset="ALTER TABLE `{$tableat}` ADD FOREIGN KEY (`userid`) REFERENCES `{$table}` (`userid`) ON DELETE CASCADE; ";
 	//$conn->query($startset);
-	
+
 
 }
 echo $last;
