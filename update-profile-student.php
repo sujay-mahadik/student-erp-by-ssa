@@ -1,6 +1,9 @@
 <?php
 include_once 'includes/db_connect.php';
 session_start();
+if (!isset($_SESSION['asi'])){
+    header("Location: login-index.php");
+}
 ?>
 
 

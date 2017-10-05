@@ -54,12 +54,15 @@ $row = mysqli_fetch_array($admininfoquery);
                       <li>
                         <b>Name:</b> <?php echo $row['fname']." ".$row['mname']." ".$row['lname']; ?>
                     </li>
+                    <br>
                     <li>
                         <b>Email:</b> <?php echo $row['email']; ?>
                     </li>
+                    <br>
                     <li>
                         <b>Address:</b> <?php echo $row['address']; ?>
                     </li>
+                    <br>
                 </div>
             </div>
             <div class="tabs">
