@@ -47,7 +47,7 @@ $_SESSION['subj']=$_POST['subj'];
 <head>
   <link rel="stylesheet" href="css/tab.css">
   <link rel="shortcut icon" href="images/sis-favicon.ico" type="image/x-icon">
-  <title>Welcome Admin</title>
+  <title>Mark Attendance</title>
 </head>
 <body class="bg">
   <div class="topnav pullUp">

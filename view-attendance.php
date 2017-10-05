@@ -18,7 +18,7 @@ if (!isset($_SESSION['asi']))
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <link rel="stylesheet" href="css/tab.css">
   <link rel="shortcut icon" href="images/sis-favicon.ico" type="image/x-icon">
-  <title>Welcome Admin</title>
+  <title>View Attendance</title>
 </head>
 <body class="bg">
   <div class="topnav pullUp">

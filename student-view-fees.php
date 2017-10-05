@@ -12,7 +12,7 @@ if (!isset($_SESSION['asi'])){
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/student-index.css">
     <link rel="shortcut icon" href="images/sis-favicon.ico" type="image/x-icon">
-    <title>Student</title>
+    <title>View Fees/Fines</title>
 </head>
 <body class="bg">
     <div class="topnav pullUp">

@@ -19,7 +19,7 @@ $row = mysqli_fetch_array($admininfoquery);
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
 
     <link rel="shortcut icon" href="images/sis-favicon.ico" type="image/x-icon">
-    <title>Teacher</title>
+    <title>Office - SIS</title>
 </head>
 <body class="bg">
     <div class="topnav pullUp">

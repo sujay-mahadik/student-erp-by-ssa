@@ -2,7 +2,7 @@
 include_once 'includes/db_connect.php';
 session_start();
 if (!isset($_SESSION['ati'])){
-    header("Location: login-index.php");
+  header("Location: login-index.php");
 }
 $year=$_POST["year"];
 $dept=$_POST["dept"];
@@ -47,7 +47,7 @@ $_SESSION['tablemrk']=$cyear.$dept."am";
 <head>
   <link rel="stylesheet" href="css/tab.css">
   <link rel="shortcut icon" href="images/sis-favicon.ico" type="image/x-icon">
-  <title>Welcome Admin</title>
+  <title>View Overall Attendance</title>
 </head>
 <body class="bg">
   <div class="topnav pullUp">
@@ -78,45 +78,45 @@ $_SESSION['tablemrk']=$cyear.$dept."am";
     </div>
     <div class="att-list">
 
-        <table>
-          <thead>
-            <tr>
-              <th class="attendance">USER ID</th>
-              <th class="attendance">NAME</th>
-              <th class="attendance">Total Attendance</th>
-              <th class="attendance">View Subjectwise</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php
-            $tablecalctotal=$_SESSION['tablemrk'];
-            $totalquery = $conn->query("SELECT * FROM `{$tablecalctotal}` where userid=99 ");
-            $rowtotal=mysqli_fetch_array($totalquery,MYSQLI_ASSOC);
-            $totallecs=$rowtotal['subj1']+$rowtotal['subj2']+$rowtotal['subj3']+$rowtotal['subj4']+$rowtotal['subj5'];
-            $tabledisplay=$_SESSION['tabledsp'];
-            $allstudentresult = $conn->query("SELECT * FROM `{$tabledisplay}` ");
-            while($row=mysqli_fetch_array($allstudentresult,MYSQLI_ASSOC))
-            {
-              $idv=$row['userid'];
-              $totalquerycalc = $conn->query("SELECT * FROM `{$tablecalctotal}` where userid='$idv' ");
-              $rowtotalcalc=mysqli_fetch_array($totalquerycalc,MYSQLI_ASSOC);
-              $totalattended=$rowtotalcalc['subj1']+$rowtotalcalc['subj2']+$rowtotalcalc['subj3']+$rowtotalcalc['subj4']+$rowtotalcalc['subj5'];
-              $totalpercentage=($totalattended/$totallecs)*100;
-
-              ?>
-              <tr>
-                <td class="row-userid"><?php echo $row['userid']; ?></td>
-                <td class="row-name"><?php echo $row['fname']." ".$row['mname']." ".$row['lname']; ?></td>
-
-                <td><?php echo number_format((float)$totalpercentage, 2, '.', '');?></td>
-                <td><a href="view-subjwise.php?table=<?php echo $tablecalctotal?>&id=<?php echo $idv?>&name=<?php echo $row['fname']?>" target="blank" >Click here</a></td>
-              </tr>
-              <?php
-            }
+      <table>
+        <thead>
+          <tr>
+            <th class="attendance">USER ID</th>
+            <th class="attendance">NAME</th>
+            <th class="attendance">Total Attendance</th>
+            <th class="attendance">View Subjectwise</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
+          $tablecalctotal=$_SESSION['tablemrk'];
+          $totalquery = $conn->query("SELECT * FROM `{$tablecalctotal}` where userid=99 ");
+          $rowtotal=mysqli_fetch_array($totalquery,MYSQLI_ASSOC);
+          $totallecs=$rowtotal['subj1']+$rowtotal['subj2']+$rowtotal['subj3']+$rowtotal['subj4']+$rowtotal['subj5'];
+          $tabledisplay=$_SESSION['tabledsp'];
+          $allstudentresult = $conn->query("SELECT * FROM `{$tabledisplay}` ");
+          while($row=mysqli_fetch_array($allstudentresult,MYSQLI_ASSOC))
+          {
+            $idv=$row['userid'];
+            $totalquerycalc = $conn->query("SELECT * FROM `{$tablecalctotal}` where userid='$idv' ");
+            $rowtotalcalc=mysqli_fetch_array($totalquerycalc,MYSQLI_ASSOC);
+            $totalattended=$rowtotalcalc['subj1']+$rowtotalcalc['subj2']+$rowtotalcalc['subj3']+$rowtotalcalc['subj4']+$rowtotalcalc['subj5'];
+            $totalpercentage=($totalattended/$totallecs)*100;
 
             ?>
-          </tbody>
-        </table>
+            <tr>
+              <td class="row-userid"><?php echo $row['userid']; ?></td>
+              <td class="row-name"><?php echo $row['fname']." ".$row['mname']." ".$row['lname']; ?></td>
+
+              <td><?php echo number_format((float)$totalpercentage, 2, '.', '');?></td>
+              <td><a href="view-subjwise.php?table=<?php echo $tablecalctotal?>&id=<?php echo $idv?>&name=<?php echo $row['fname']?>" target="blank" >Click here</a></td>
+            </tr>
+            <?php
+          }
+
+          ?>
+        </tbody>
+      </table>
 
 
 

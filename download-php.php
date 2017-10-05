@@ -12,7 +12,7 @@ if (!isset($_SESSION['asi']))
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <link rel="stylesheet" href="css/tab.css">
   <link rel="shortcut icon" href="images/sis-favicon.ico" type="image/x-icon">
-  <title>Welcome Admin</title>
+  <title>Download Notes</title>
 </head>
 <body class="bg">
   <div class="topnav pullUp">
@@ -41,43 +41,43 @@ if (!isset($_SESSION['asi']))
 
     </div>
 
-<form >
+    <form >
       <ul class="form-style">
 
         <?php
-include_once 'includes/db_connect.php';
-session_start();
-    $year=substr($_SESSION['foundtable'],0,2);
+        include_once 'includes/db_connect.php';
+        session_start();
+        $year=substr($_SESSION['foundtable'],0,2);
     //echo $year;
-    $dept=substr($_SESSION['foundtable'],2);
+        $dept=substr($_SESSION['foundtable'],2);
     //echo $dept;
 
-    $query="SELECT * FROM docs where year='$year' and dept='$dept'";
-    $result=$conn->query($query);
+        $query="SELECT * FROM docs where year='$year' and dept='$dept'";
+        $result=$conn->query($query);
 
-while ($row =mysqli_fetch_array($result,MYSQLI_ASSOC)) {
+        while ($row =mysqli_fetch_array($result,MYSQLI_ASSOC)) {
 
-    $id   = $row['id'];
-    $name = $row['name'];
-    $loc  = $row['loc'];
+          $id   = $row['id'];
+          $name = $row['name'];
+          $loc  = $row['loc'];
 
-    echo "   " . $name ."      <a href='download.php?dow=$loc'>Download</a><br><br>";
+          echo "   " . $name ."      <a href='download.php?dow=$loc'>Download</a><br><br>";
 
-}
+        }
 
- ?>
+        ?>
 
       </ul>
     </form>
 
 
 
-</div>
+  </div>
 
 
-<div class="footer">
-  <p> Copyright 2017. All Rights Reserved. Developed by SSA</p>
-</div>
+  <div class="footer">
+    <p> Copyright 2017. All Rights Reserved. Developed by SSA</p>
+  </div>
 
 </body>
 </html>

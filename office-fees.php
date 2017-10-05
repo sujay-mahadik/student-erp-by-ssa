@@ -34,7 +34,7 @@ $post=$_SESSION['post'];
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/tab.css">
   <link rel="shortcut icon" href="images/sis-favicon.ico" type="image/x-icon">
-  <title>Office</title>
+  <title>Fees/Fines</title>
 </head>
 <body class="bg">
   <div class="topnav pullUp">
