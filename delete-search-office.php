@@ -11,13 +11,13 @@ $_SESSION['showdelete']=0;
 
 
 $tables = "office";
-$search_sql = "SELECT * FROM `{$tables}` where userid='$id'";
+$search_sql = "SELECT * FROM office where userid='$id'";
 $search_result = $conn->query($search_sql);
 if ($search_result->num_rows > 0) {
     $table_found = $tables;
 }
 
-$table_found_sql = "SELECT * FROM admin where userid='$id'";
+$table_found_sql = "SELECT * FROM office where userid='$id'";
 $table_found_result = $conn->query($table_found_sql);
 if ($table_found_result->num_rows > 0) {
     session_start();

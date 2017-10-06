@@ -15,12 +15,13 @@ while($row=mysqli_fetch_array($allstudentresult,MYSQLI_ASSOC))
 	if($_POST[$row['userid']]=="on")
 	{
 		$id=$row['userid'];
+        $attendanceid=substr($id,0,3);
 		$sql="update  `{$tabledisplay}` set `{$subj}`=`{$subj}`+1 where userid= '$id' ";
 		$result=$conn->query($sql);
             //echo $result;
 	}
 }
-$sql="update  `{$tabledisplay}` set `{$subj}`=`{$subj}`+1 where userid=99";
+$sql="update  attendance set `{$subj}`=`{$subj}`+1 where userid='$attendanceid'";
 $result=$conn->query($sql);
 $_SESSION['updatemsg']="update successfull";
 header("Location: attendance.php");
