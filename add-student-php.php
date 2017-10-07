@@ -66,9 +66,9 @@ $newtable = "CREATE TABLE If NOT EXISTS `{$table}` (
 `year`  varchar(50) NOT NULL,
 `dept`  varchar(50) NOT NULL,
 `image` varchar(1024) default 'profile-image/default.png',
-`examfees` int(10),
-`libraryfine` int(10),
-`otherfees` int(10),
+`examfees` int(10) DEFAULT 0,
+`libraryfine` int(10) DEFAULT 0,
+`otherfees` int(10) DEFAULT 0,
 `remarks` varchar(50),
 FOREIGN KEY (userid) REFERENCES users(userid) ON DELETE CASCADE
 )";
