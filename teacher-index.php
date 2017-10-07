@@ -17,6 +17,8 @@ $row = mysqli_fetch_array($admininfoquery);
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/teacher-index.css">
+    <link rel="stylesheet" href="css/student-index.css">
+
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
 
     <link rel="shortcut icon" href="images/sis-favicon.ico" type="image/x-icon">
@@ -78,6 +80,12 @@ $row = mysqli_fetch_array($admininfoquery);
         </div>
         <div class="container-tabs">
             <div class="tabs">
+            <div class="updateprofile ">
+                    <a href="update-profile-teacher.php">Edit Profile</a>
+                </div>
+                <div class="updatepassword">
+                    <a href="change-password-teacher.php">Change Password</a>
+                </div>
             </div>
             <div class="tabs">
                 <div id="tab-click" class="tabss orange marks-icon">

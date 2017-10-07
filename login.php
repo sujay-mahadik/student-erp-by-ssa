@@ -13,6 +13,9 @@ if($_SESSION['type']=="a")
     $_SESSION['id']=$id;
     $row = mysqli_fetch_array($result);
     $_SESSION['username']=$row['fname']." ".$row['mname']." ".$row['lname'];
+    $_SESSION['fname']=$row['fname'];
+    $_SESSION['mname']=$row['mname'];
+    $_SESSION['lname']=$row['lname'];
     $_SESSION['email']=$row['email'];
     $_SESSION['address']=$row['address'];
     $_SESSION['image']=$row['image'];
@@ -32,6 +35,9 @@ elseif($_SESSION['type']=="t")
     $_SESSION['id']=$id;
     $row = mysqli_fetch_array($result);
     $_SESSION['username']=$row['fname']." ".$row['mname']." ".$row['lname'];
+    $_SESSION['fname']=$row['fname'];
+    $_SESSION['mname']=$row['mname'];
+    $_SESSION['lname']=$row['lname'];
     $_SESSION['email']=$row['email'];
     $_SESSION['address']=$row['address'];
     $_SESSION['image']=$row['image'];

@@ -24,12 +24,14 @@ $userid = $_SESSION['id'];
 $admininfo="SELECT * FROM admin WHERE userid = '$userid'";
 $admininfoquery =  $conn->query($admininfo);
 $row = mysqli_fetch_array($admininfoquery);
+
 ?>
 <!DOCTYPE html>
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/admin-index.css">
+  <link rel="stylesheet" href="css/student-index.css">
   <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
   <link rel="shortcut icon" href="images/sis-favicon.ico" type="image/x-icon">
   <title>Welcome Admin</title>
@@ -114,6 +116,12 @@ $row = mysqli_fetch_array($admininfoquery);
       </div>
       <div class="container-tabs">
         <div class="tabs">
+        <div class="updateprofile ">
+                    <a href="update-profile-admin.php">Edit Profile</a>
+                </div>
+                <div class="updatepassword">
+                    <a href="change-password-admin.php">Change Password</a>
+                </div>
         </div>
         <div class="tabs">
           <div id="tab-click" class="tabss orange librarian-icon">
