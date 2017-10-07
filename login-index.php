@@ -1,4 +1,4 @@
-<?php session_start(); 
+<?php session_start();
 
 ?>
 <!DOCTYPE html>
@@ -20,7 +20,7 @@
         <!--Only For Login card Background-->
     </div>
     <div class="logincard">
-        <form action="login.php" method="post" autocomplete="off">
+        <form action="validate.php" method="post" autocomplete="off">
             <div class="container-login-title">Login
             </div>
             <div class="container-input-fields">
@@ -28,12 +28,12 @@
                 <input type="password" placeholder="Password" onfocus="this.placeholder = 'Password'" onblur="this.placeholder = 'Password'" name="upass" required="required">
                 <button type="submit">Login</button>
                 <a class="login-error">
-                    <?php 
+                    <?php
                     if (isset($_SESSION['login-error']))
                     {
                         echo $_SESSION['login-error'];
                         unset($_SESSION['login-error']);
-                    } 
+                    }
                     if (isset($_SESSION['logedout'])) {
                         echo $_SESSION['logedout'];
                         unset($_SESSION['logedout']);

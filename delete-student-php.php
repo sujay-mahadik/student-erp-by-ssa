@@ -9,7 +9,7 @@ $userid=$_SESSION['duserid'];
 $table=$_SESSION['dtable_found'];
 $trun = substr($table,0,-2);
 $tableat = $trun."am";
-$sql = "DELETE FROM `{$table}` WHERE userid='$userid'"  ;
+$sql = "DELETE FROM users WHERE userid='$userid'"  ;
 if ($conn->query($sql) === TRUE) {
 	echo "successfully ";
 	$_SESSION['deleted']= "Deleted successful of USER ID : ".$_SESSION['duserid'];

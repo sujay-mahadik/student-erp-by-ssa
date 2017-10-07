@@ -14,29 +14,44 @@ $lname=$_POST["lastname"];
 $address=$_POST["address"];
 $email=$_POST["email"];
 $tablecreate="CREATE TABLE IF NOT EXISTS admin (
-`userid` int(11) AUTO_INCREMENT PRIMARY KEY,
-`password` varchar(40) NOT NULL,
+`userid` int(11) PRIMARY KEY,
+
 `fname` varchar(50) NOT NULL,
-`mname` varchar(50) NOT NULL,
-`lname` varchar(50) NOT NULL,
+`mname` varchar(50) ,
+`lname` varchar(50) ,
 `address` varchar(100) NOT NULL,
 `email` varchar(50) NOT NULL,
-`image` varchar(1024) default 'profile-image/default.png'
+`image` varchar(1024) default 'profile-image/default.png',
+FOREIGN KEY (userid) REFERENCES users(userid)
+
 )";
-if($conn->query($tablecreate)===TRUE){
-    $start="100";
-    $startset="alter table office AUTO_INCREMENT=".$start."";
-    $conn->query($startset);
+$conn->query($tablecreate);
+$maxuseridsql = mysqli_query($conn, "SELECT MAX(userid) AS maxuserid FROM admin");
+$row = mysqli_fetch_assoc($maxuseridsql);
+$maxuserid = $row['maxuserid'];
+echo $maxuserid;
+if($maxuserid=="")
+{
+    $maxuserid=99;
+
 }
-$sql = "INSERT INTO admin (password,fname,mname,lname,address,email) VALUES ('$password','$fname','$mname','$lname','$address','$email')";
-if ($conn->query($sql) === TRUE) {
-    $maxuseridsql = mysqli_query($conn, "SELECT MAX(userid) AS maxuserid FROM admin");
-    $row = mysqli_fetch_assoc($maxuseridsql);
-    $maxuserid = $row['maxuserid'];
-    $_SESSION['added']="Staff added with USER ID :".$maxuserid." default password 12345678";
+
+$maxuserid = $maxuserid + 1;
+$sql = "INSERT INTO users VALUES ('$maxuserid','$password','a')";
+$conn->query($sql);
+$sql = "INSERT INTO admin (userid,fname,mname,lname,address,email,image) VALUES ('$maxuserid','$fname','$mname','$lname','$address','$email','profile-image/default.png')";
+if($conn->query($sql)===TRUE)
+{
+    $_SESSION['added']="Admin added with USER ID :".$maxuserid." default password password";
     $_SESSION['add']=1;
     header("Location: tab-admin.php");
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
 }
+
+else
+{
+    echo $conn->error;
+}
+
+
+
 ?>

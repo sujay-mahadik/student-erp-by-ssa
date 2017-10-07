@@ -7,7 +7,7 @@ if (!isset($_SESSION['aai']))
 echo "here...";
 $userid=$_SESSION['duserid'];
 $table=$_SESSION['dtable_found'];
-$sql = "DELETE FROM `{$table}` WHERE userid='$userid'"  ;
+$sql = "DELETE FROM users WHERE userid='$userid'"  ;
 if ($conn->query($sql) === TRUE) {
 	echo "successfully ";
 	$_SESSION['deleted']= "Deleted successful of USER ID : ".$_SESSION['duserid'];
