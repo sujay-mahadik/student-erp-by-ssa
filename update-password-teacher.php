@@ -11,7 +11,7 @@ $newpassc=sha1($_POST['cnpass']);
 $pass=$_SESSION['password'];
 $table="users";
 $userid=$_SESSION['id'];
-if($pass == $cpass)
+if($pass == $cpass) 
 {
     //echo "herr";
     if($newpass==$newpassc)

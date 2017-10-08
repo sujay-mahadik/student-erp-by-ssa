@@ -78,9 +78,9 @@ else {
       <form action="add-admin-php.php" method="post">
         <ul class="form-style">
           <li><label>Full Name <span class="required">*</span></label>
-            <input type="text" name="firstname" class="field-divided" placeholder="First" required="required" >
-            <input type="text" name="middlename" class="field-divided" placeholder="Middle"  >
-            <input type="text" name="lastname" class="field-divided" placeholder="Last"  >
+            <input type="text" name="firstname" class="field-divided" placeholder="First" required="Alphabets only" pattern="[A-Za-z]{2,}">
+            <input type="text" name="middlename" class="field-divided" placeholder="Middle" required="Alphabets only" pattern="[A-Za-z]{2,}">
+            <input type="text" name="lastname" class="field-divided" placeholder="Last"  pattern="[A-Za-z]{2,}" required="Alphabets only" >
           </li>
           <li><label>Residential address<span class="required">*</span></label>
             <!-- <input type="text" name="uid" class="field-divided" placeholder="Roll Number" /> -->

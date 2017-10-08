@@ -17,7 +17,7 @@ if($pass == $cpass)
     if($newpass==$newpassc)
     {
         $sql = "call updatepassword('$newpass','$userid')"  ;
-            if ($conn->query($sql) === TRUE) {
+            if ($conn->query($sql) ===  TRUE) {
                 //echo "successfully ";
                 $_SESSION['passmsg']="Password Updated Successfully";
                header("Location: change-password.php");

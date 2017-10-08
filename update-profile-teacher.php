@@ -42,9 +42,9 @@ session_start();
             <ul class="form-style">
 
                 <li><label>Full Name <span class="required">*</span></label>
-                    <input type="text" name="firstname" class="field-divided" placeholder="First" required="required" value=<?php echo $_SESSION['fname']?>>
-                    <input type="text" name="middlename" class="field-divided" placeholder="Middle" value=<?php echo $_SESSION['mname']?>  >
-                    <input type="text" name="lastname" class="field-divided" placeholder="Last"  value=<?php echo $_SESSION['lname']?>>
+                    <input type="text" name="firstname" class="field-divided" placeholder="First" required="required" value=<?php echo $_SESSION['fname']?> pattern="[A-Za-z]{2,}" title="Alphabet Only">
+                    <input type="text" name="middlename" class="field-divided" placeholder="Middle" pattern="[A-Za-z]{2,}" title="Alphabet Only" value=<?php echo $_SESSION['mname']?>  >
+                    <input type="text" name="lastname" class="field-divided" placeholder="Last"  pattern="[A-Za-z]{2,}" title="Alphabet Only" value=<?php echo $_SESSION['lname']?> >
                 </li>
                 <li><label>Residential address<span class="required">*</span></label>
                     <!-- <input type="text" name="uid" class="field-divided" placeholder="Roll Number" /> -->

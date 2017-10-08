@@ -50,7 +50,7 @@ if (!isset($_SESSION['aai'])){
 
           </li>
           <li><label>Enter New Password <span class="required">*</span></label>
-            <input type="password" name="npass" class="field-divided" placeholder="New Password" required="required" title="New Password" >
+            <input type="password" name="npass" class="field-divided" placeholder="New Password" required="required" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters" >
 
           </li>
           <li><label>Re-enter New Password <span class="required">*</span></label>

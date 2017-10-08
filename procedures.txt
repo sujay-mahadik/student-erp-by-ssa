@@ -20,4 +20,4 @@ end #
 create procedure updatepassword(in newpass varchar(40),in useridd int)
 begin
 UPDATE users SET password= newpass WHERE userid=useridd  ;
-end #
+end # 
