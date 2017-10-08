@@ -99,7 +99,7 @@ else {
               <option value="head cashier">Head Cashier</option>
               <option value="staff">Staff</option>
               <option value="librarian">Librarian</option>
-              
+
             </select>
           <!-- <select name="pattern" class="field-select-divided dropdown-button">
             <option value="">--select pattern--</option>
@@ -463,7 +463,7 @@ else {
           <th>POST </th>
           <th>ADDRESS</th>
 
-          
+
           <th>EMAIL</th>
 
         </tr>
@@ -471,10 +471,10 @@ else {
       <tbody>
         <?php
 
-        $tables="office";
+       // $tables="office";
 
 
-        $allstudentresult = $conn->query("SELECT * FROM `{$tables}` ");
+        $allstudentresult = $conn->query("call viewoffice() ");
         while($row=mysqli_fetch_array($allstudentresult,MYSQLI_ASSOC))
         {
           ?>

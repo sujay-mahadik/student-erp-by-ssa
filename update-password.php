@@ -16,7 +16,7 @@ if($pass == $cpass)
     //echo "herr";
     if($newpass==$newpassc)
     {
-        $sql = "UPDATE `{$table}` SET password= '$newpass' WHERE userid='$userid'"  ;
+        $sql = "call updatepassword('$newpass','$userid')"  ;
             if ($conn->query($sql) === TRUE) {
                 //echo "successfully ";
                 $_SESSION['passmsg']="Password Updated Successfully";

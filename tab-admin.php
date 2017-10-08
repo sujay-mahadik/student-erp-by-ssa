@@ -97,7 +97,7 @@ else {
               <option value="head cashier">Head Cashier</option>
               <option value="staff">Staff</option>
               <option value="librarian">Librarian</option>
-              
+
             </select>
           <!-- <select name="pattern" class="field-select-divided dropdown-button">
             <option value="">--select pattern--</option>
@@ -453,23 +453,23 @@ else {
         <tr>
           <th>USER ID</th>
           <th>NAME</th>
-          
+
           <th>ADDRESS</th>
-          
+
           <th>EMAIL</th>
         </tr>
       </thead>
       <tbody>
         <?php
-        $tables="admin";
-        $allstudentresult = $conn->query("SELECT * FROM `{$tables}` ");
+        //$tables="admin";
+        $allstudentresult = $conn->query("call viewadmin() ");
         while($row=mysqli_fetch_array($allstudentresult,MYSQLI_ASSOC))
         {
           ?>
           <tr>
             <td><?php echo $row['userid']; ?></td>
             <td><?php echo $row['fname']." ".$row['mname']." ".$row['lname']; ?></td>
-            
+
             <td><?php echo $row['address']; ?></td>
             <td><?php echo $row['email']; ?></td>
           </tr>

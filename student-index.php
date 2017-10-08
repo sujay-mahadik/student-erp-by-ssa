@@ -62,6 +62,10 @@ $_SESSION['pass']=$row['password'];
                     <!--<div class="pic" style="background-image: url(<?php echo $_SESSION['profile_img'];?>); background-repeat: no-repeat;background-position: center; ">
                     </div>-->
                     <div class="tabinfo">
+                    <li>
+                    <b><u>Personal Details</u></b>
+                    </li>
+                    <br>
                        <li>
                         Name: <?php echo $row['fname']." ".$row['mname']." ".$row['lname']; ?>
                     </li>

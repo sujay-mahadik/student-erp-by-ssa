@@ -12,7 +12,7 @@ if (!isset($_SESSION['ati'])){
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/tab.css">
   <link rel="shortcut icon" href="images/sis-favicon.ico" type="image/x-icon">
-  <title>Welcome Admin</title>
+  <title>Welcome Teacher</title>
 </head>
 <body class="bg">
   <div class="topnav pullUp">

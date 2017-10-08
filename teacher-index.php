@@ -11,6 +11,15 @@ $userid = $_SESSION['id'];
 $admininfo="SELECT * FROM teacher WHERE userid = '$userid'";
 $admininfoquery =  $conn->query($admininfo);
 $row = mysqli_fetch_array($admininfoquery);
+$_SESSION['username']=$row['fname']." ".$row['mname']." ".$row['lname'];
+    $_SESSION['fname']=$row['fname'];
+    $_SESSION['mname']=$row['mname'];
+    $_SESSION['lname']=$row['lname'];
+    $_SESSION['email']=$row['email'];
+    $_SESSION['address']=$row['address'];
+    $_SESSION['image']=$row['image'];
+    //echo $row['image'];
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -53,6 +62,10 @@ $row = mysqli_fetch_array($admininfoquery);
                     <!--<div class="pic" style="background-image: url(<?php echo $_SESSION['profile_img'];?>); background-repeat: no-repeat;background-position: center; ">
                     </div>-->
                     <div class="tabinfo">
+                    <li>
+                    <b><u>Personal Details</u></b>
+                    </li>
+                    <br>
                       <li>
                         <b>Name:</b> <?php echo $row['fname']." ".$row['mname']." ".$row['lname']; ?>
                     </li>
@@ -81,9 +94,11 @@ $row = mysqli_fetch_array($admininfoquery);
         <div class="container-tabs">
             <div class="tabs">
             <div class="updateprofile ">
+            <br>
                     <a href="update-profile-teacher.php">Edit Profile</a>
                 </div>
                 <div class="updatepassword">
+                <br>
                     <a href="change-password-teacher.php">Change Password</a>
                 </div>
             </div>

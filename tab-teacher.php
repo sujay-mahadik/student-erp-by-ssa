@@ -475,10 +475,10 @@ else {
       <tbody>
         <?php
 
-        $tables="teacher";
+        //$tables="teacher";
 
 
-        $allstudentresult = $conn->query("SELECT * FROM `{$tables}` ");
+        $allstudentresult = $conn->query("call viewteachers() ");
         while($row=mysqli_fetch_array($allstudentresult,MYSQLI_ASSOC))
         {
           ?>
