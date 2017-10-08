@@ -22,17 +22,20 @@
     Teacher can View/Download Attendace
     Teacher can Sent Notifications to Student
     Teacher can Manage thier Own Profile
-    
+
 ## Roles of Office
-    
+
     Office staff can issue fees to invidual student via id
     Office staff can issue fees to entire class via class and dept
     Office staff can collect fees categorized as Exam fees, Library fines, and Other fees.
     Office staff can view pending fees of the students if any
-    
+
 ## Roles of Student
 
     Student can View/Download Attendace
     Student can Manage thier Own Profile
+
+## ToDo
+    Fire those Mysql Queries stored in procedures.txt once on the Mysql shell
 
 ### Further Updates and Objectives to be added. Thank you!
