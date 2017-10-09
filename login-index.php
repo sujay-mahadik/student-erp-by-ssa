@@ -41,6 +41,7 @@
                     }
                     ?>
                 </a>
+                <a href="forgotpassword.php">Forgot Password</a>
             </div>
         </form>
     </div>

@@ -212,7 +212,7 @@ else {
           <div class="submit">
             <button  type="submit">Search</button>
           </div>
-
+ 
         </li>
         <li>
           <div class="result-found">
@@ -253,9 +253,9 @@ else {
       <form action="update-student-php.php" method="post">
         <ul class="form-style">
           <li><label>Full Name <span class="required">*</span></label>
-            <input type="text" name="ufirstname" class="field-divided" value="<?php echo "$ufname"; ?>" required="required" title="Firstname required"/>
-            <input type="text" name="umiddlename" class="field-divided" value="<?php echo "$umname"; ?>" />
-            <input type="text" name="ulastname" class="field-divided" value="<?php echo "$ulname"; ?>" />
+            <input type="text" name="ufirstname" class="field-divided" title="Alphabet Only"  pattern="[A-Za-z]{2,}" value="<?php echo "$ufname"; ?>" required="required"  />
+            <input type="text" name="umiddlename" class="field-divided" title="Alphabet Only"  pattern="[A-Za-z]{2,}" value="<?php echo "$umname"; ?>" />
+            <input type="text" name="ulastname" class="field-divided" title="Alphabet Only"  pattern="[A-Za-z]{2,}" Nvalue="<?php echo "$ulname"; ?>" />
           </li>
           <li><label>Residential address<span class="required">*</span></label>
             <!-- <input type="text" name="uid" class="field-divided" placeholder="Roll Number" /> -->

@@ -21,7 +21,7 @@ $_SESSION['libraryfine']=$row['libraryfine'];
 $_SESSION['otherfees']=$row['otherfees'];
 $_SESSION['totalfees']=$row['examfees']+$row['libraryfine']+$row['otherfees'];
 $_SESSION['image']=$row['image'];
-$_SESSION['pass']=$row['password'];
+
 ?>
 <!DOCTYPE html>
 <html>
