@@ -78,9 +78,9 @@ else {
       <form action="add-admin-php.php" method="post">
         <ul class="form-style">
           <li><label>Full Name <span class="required">*</span></label>
-            <input type="text" name="firstname" class="field-divided" placeholder="First" required="required" >
-            <input type="text" name="middlename" class="field-divided" placeholder="Middle"  >
-            <input type="text" name="lastname" class="field-divided" placeholder="Last"  >
+            <input type="text" name="firstname" class="field-divided" placeholder="First" required="Alphabets only" pattern="[A-Za-z]{2,}">
+            <input type="text" name="middlename" class="field-divided" placeholder="Middle" required="Alphabets only" pattern="[A-Za-z]{2,}">
+            <input type="text" name="lastname" class="field-divided" placeholder="Last"  pattern="[A-Za-z]{2,}" required="Alphabets only" >
           </li>
           <li><label>Residential address<span class="required">*</span></label>
             <!-- <input type="text" name="uid" class="field-divided" placeholder="Roll Number" /> -->
@@ -97,7 +97,7 @@ else {
               <option value="head cashier">Head Cashier</option>
               <option value="staff">Staff</option>
               <option value="librarian">Librarian</option>
-              
+
             </select>
           <!-- <select name="pattern" class="field-select-divided dropdown-button">
             <option value="">--select pattern--</option>
@@ -453,23 +453,23 @@ else {
         <tr>
           <th>USER ID</th>
           <th>NAME</th>
-          
+
           <th>ADDRESS</th>
-          
+
           <th>EMAIL</th>
         </tr>
       </thead>
       <tbody>
         <?php
-        $tables="admin";
-        $allstudentresult = $conn->query("SELECT * FROM `{$tables}` ");
+        //$tables="admin";
+        $allstudentresult = $conn->query("call viewadmin() ");
         while($row=mysqli_fetch_array($allstudentresult,MYSQLI_ASSOC))
         {
           ?>
           <tr>
             <td><?php echo $row['userid']; ?></td>
             <td><?php echo $row['fname']." ".$row['mname']." ".$row['lname']; ?></td>
-            
+
             <td><?php echo $row['address']; ?></td>
             <td><?php echo $row['email']; ?></td>
           </tr>

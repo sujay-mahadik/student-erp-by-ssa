@@ -1,0 +1,23 @@
+create procedure viewteachers()
+begin
+select * from teacher;
+end #
+
+
+
+create procedure viewadmin()
+begin
+select * from admin;
+end #
+
+
+create procedure viewoffice()
+begin
+select * from office;
+end #
+
+
+create procedure updatepassword(in newpass varchar(40),in useridd int)
+begin
+UPDATE users SET password= newpass WHERE userid=useridd  ;
+end # 

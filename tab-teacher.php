@@ -78,9 +78,9 @@ else {
         <ul class="form-style">
 
           <li><label>Full Name <span class="required">*</span></label>
-            <input type="text" name="firstname" class="field-divided" placeholder="First" required="required" >
-            <input type="text" name="middlename" class="field-divided" placeholder="Middle"  >
-            <input type="text" name="lastname" class="field-divided" placeholder="Last"  >
+            <input type="text" name="firstname" class="field-divided" placeholder="First" required="required" title="Alphabet Only"  pattern="[A-Za-z]{2,}" >
+            <input type="text" name="middlename" class="field-divided" placeholder="Middle"  title="Alphabet Only"  pattern="[A-Za-z]{2,}">
+            <input type="text" name="lastname" class="field-divided" placeholder="Last" title="Alphabet Only"  pattern="[A-Za-z]{2,}"  >
           </li>
           <li><label>Residential address<span class="required">*</span></label>
             <!-- <input type="text" name="uid" class="field-divided" placeholder="Roll Number" /> -->
@@ -475,10 +475,10 @@ else {
       <tbody>
         <?php
 
-        $tables="teacher";
+        //$tables="teacher";
 
 
-        $allstudentresult = $conn->query("SELECT * FROM `{$tables}` ");
+        $allstudentresult = $conn->query("call viewteachers() ");
         while($row=mysqli_fetch_array($allstudentresult,MYSQLI_ASSOC))
         {
           ?>

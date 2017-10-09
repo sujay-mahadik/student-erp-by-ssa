@@ -12,7 +12,7 @@ if ($result->num_rows > 0) {
     $_SESSION['id']=$id;
     $row = mysqli_fetch_array($result);
     $_SESSION['type']=$row['type'];
-    //echo $_SESSION['type'];
+    $_SESSION['password']=$row['password'];
     header("Location: login.php");
 }
 else{

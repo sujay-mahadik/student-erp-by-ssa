@@ -12,7 +12,9 @@ if (!isset($_SESSION['asi'])){
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/tab.css">
   <link rel="shortcut icon" href="images/sis-favicon.ico" type="image/x-icon">
-  <title>Change Password</title>
+
+  <title>Welcome Student</title>
+
 </head>
 <body class="bg">
   <div class="topnav pullUp">
@@ -50,7 +52,7 @@ if (!isset($_SESSION['asi'])){
 
         </li>
         <li><label>Enter New Password <span class="required">*</span></label>
-          <input type="password" name="npass" class="field-divided" placeholder="New Password" required="required" title="New Password" >
+          <input type="password" name="npass" class="field-divided" placeholder="New Password" required="required" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters"  >
 
         </li>
         <li><label>Re-enter New Password <span class="required">*</span></label>
