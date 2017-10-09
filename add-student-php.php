@@ -56,74 +56,75 @@ else{
 $table = $cyear.$dept."db";
 
 $newtable = "CREATE TABLE If NOT EXISTS `{$table}` (
-`userid` int(11) AUTO_INCREMENT PRIMARY KEY,
-`password` varchar(40) NOT NULL,
+`userid` int(11) PRIMARY KEY,
+
 `fname` varchar(50) NOT NULL,
-`mname` varchar(50) NOT NULL,
-`lname` varchar(50) NOT NULL,
+`mname` varchar(50) ,
+`lname` varchar(50) ,
 `address` varchar(100) NOT NULL,
 `email`	varchar(50) NOT NULL,
 `year`  varchar(50) NOT NULL,
 `dept`  varchar(50) NOT NULL,
 `image` varchar(1024) default 'profile-image/default.png',
-`examfees` int(10),
-`libraryfine` int(10),
-`otherfees` int(10),
-`remarks` varchar(50)
+`examfees` int(10) DEFAULT 0,
+`libraryfine` int(10) DEFAULT 0,
+`otherfees` int(10) DEFAULT 0,
+`remarks` varchar(50),
+FOREIGN KEY (userid) REFERENCES users(userid) ON DELETE CASCADE
 )";
 
-if($conn->query($newtable)===TRUE){
-	$start=$cyear.$deptid."001";
-
-	$startset="ALTER TABLE `{$table}` AUTO_INCREMENT=".$start."";
-	$conn->query($startset);
-}
-//attendacne table
-
-$sql = "INSERT INTO `{$table}` (password,fname,mname,lname,address,email,year,dept) VALUES ('$password','$fname','$mname','$lname','$address','$email','$year','$dept')";
+$conn->query($newtable);
 $tableat=$cyear.$dept."am";
-if ($conn->query($sql) === TRUE) {
-	$maxuseridsql = mysqli_query($conn, "SELECT MAX(userid) AS maxuserid FROM `{$table}`");
-	$row = mysqli_fetch_assoc($maxuseridsql);
-	$maxuserid = $row['maxuserid'];
-	//echo $maxuserid;
-	$last=substr($maxuserid, -3);
-	if($last=="001")
-	{
+$maxuseridsql = mysqli_query($conn, "SELECT MAX(userid) AS maxuserid FROM `{$table}`");
+$row = mysqli_fetch_assoc($maxuseridsql);
+$maxuserid = $row['maxuserid'];
+echo $maxuserid;
+if($maxuserid=="")
+{
+    $maxuserid=$start=$cyear.$deptid."000";
 
-		$newtableattendance = "CREATE TABLE If NOT EXISTS `{$tableat}` (
+    $newtableattendance = "CREATE TABLE If NOT EXISTS `{$tableat}` (
 		`userid` int(11),
 		`subj1` int DEFAULT 0,
 		`subj2` int DEFAULT 0,
 		`subj3` int DEFAULT 0,
 		`subj4` int DEFAULT 0,
-		`subj5` int DEFAULT 0
-
+		`subj5` int DEFAULT 0,
+		FOREIGN KEY (userid) REFERENCES `{$table}`(userid) ON DELETE CASCADE
 	)";
-	if($conn->query($newtableattendance)===TRUE){
-		$sql="INSERT into `{$tableat}`(userid) values (99)";
+	$conn->query($newtableattendance);
+    $attendanceid=substr($maxuserid,0,3);
+    $sql="INSERT into attendance (userid) values ($attendanceid)";
+        $conn->query($sql);
+}
+
+$maxuserid = $maxuserid + 1;
+$sql = "INSERT INTO users VALUES ('$maxuserid','$password','s')";
+$conn->query($sql);
+$sql = "INSERT INTO `{$table}` (userid,fname,mname,lname,address,email,year,dept) VALUES ('$maxuserid','$fname','$mname','$lname','$address','$email','$year','$dept')";
+$conn->query($sql);
+    $_SESSION['added']="Student added with USER ID :".$maxuserid." default password password";
+    $_SESSION['add']=1;
+    $sql="INSERT into `{$tableat}`(userid) values ($maxuserid)";
 		$conn->query($sql);
-
-	}
-	//$startset="ALTER TABLE `{$tableat}` ADD FOREIGN KEY (`userid`) REFERENCES `{$table}` (`userid`) ON DELETE CASCADE; ";
-	//$conn->query($startset);
+    header("Location: tab-student.php");
 
 
-}
-echo $last;
-$_SESSION['added']="Student added with USER ID :".$maxuserid." default password 12345678";
-$_SESSION['add']=1;
-header("Location: tab-student.php");
-} else {
-	echo "Error: " . $sql . "<br>" . $conn->error;
-}
-//insert id into attendance table
-$sql = "INSERT INTO `{$tableat}` (userid) VALUES ('$maxuserid')";
 
-if ($conn->query($sql) === TRUE) {
 
-	header("Location: tab-student.php");
-} else {
-	echo "Error: " . $sql . "<br>" . $conn->error;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>

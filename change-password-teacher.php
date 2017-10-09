@@ -1,7 +1,7 @@
 <?php
 include_once 'includes/db_connect.php';
 session_start();
-if (!isset($_SESSION['asi'])){
+if (!isset($_SESSION['ati'])){
   header("Location: login-index.php");
 
 }
@@ -12,7 +12,7 @@ if (!isset($_SESSION['asi'])){
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/tab.css">
   <link rel="shortcut icon" href="images/sis-favicon.ico" type="image/x-icon">
-  <title>Welcome Student</title>
+  <title>Welcome Teacher</title>
 </head>
 <body class="bg">
   <div class="topnav pullUp">
@@ -36,11 +36,11 @@ if (!isset($_SESSION['asi'])){
         ?>
       </div>
       <div class="home-button">
-        <a href="student-index.php">Home</a>
+        <a href="admin-index.php">Home</a>
       </div>
 
     </div>
-    <form action="update-password.php" method="post">
+    <form action="update-password-teacher.php" method="post">
         <ul class="form-style">
 <li>
           <?php echo $_SESSION['passmsg']; ?>

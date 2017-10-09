@@ -15,31 +15,42 @@ $address=$_POST["address"];
 $email=$_POST["email"];
 $post=$_POST["post"];
 $tablecreate="CREATE TABLE IF NOT EXISTS office (
-`userid` int(11) AUTO_INCREMENT PRIMARY KEY,
-`password` varchar(40) NOT NULL,
+`userid` int(11) PRIMARY KEY,
 `fname` varchar(50) NOT NULL,
-`mname` varchar(50) NOT NULL,
-`lname` varchar(50) NOT NULL,
+`mname` varchar(50) ,
+`lname` varchar(50) ,
 `address` varchar(100) NOT NULL,
 `email` varchar(50) NOT NULL,
 `post`  varchar(50) NOT NULL,
-`balance` int(10) NOT NULL,
-`image` varchar(1024) default 'profile-image/default.png'
+`balance` int(10) ,
+`image` varchar(1024) default 'profile-image/default.png',
+FOREIGN KEY (userid) REFERENCES users(userid) ON DELETE CASCADE
 )";
-if($conn->query($tablecreate)===TRUE){
-    $start="301";
-    $startset="alter table office AUTO_INCREMENT=".$start."";
-    $conn->query($startset);
+
+$conn->query($tablecreate);
+
+$maxuseridsql = mysqli_query($conn, "SELECT MAX(userid) AS maxuserid FROM office");
+$row = mysqli_fetch_assoc($maxuseridsql);
+$maxuserid = $row['maxuserid'];
+echo $maxuserid;
+if($maxuserid=="")
+{
+    $maxuserid=300;
+
 }
-$sql = "INSERT INTO office (password,fname,mname,lname,address,email,post,balance) VALUES ('$password','$fname','$mname','$lname','$address','$email','$post','$balance')";
-if ($conn->query($sql) === TRUE) {
-    $maxuseridsql = mysqli_query($conn, "SELECT MAX(userid) AS maxuserid FROM office");
-    $row = mysqli_fetch_assoc($maxuseridsql);
-    $maxuserid = $row['maxuserid'];
-    $_SESSION['added']="Staff added with USER ID :".$maxuserid." default password 12345678";
+
+$maxuserid = $maxuserid + 1;
+$sql = "INSERT INTO users VALUES ('$maxuserid','$password','o')";
+$conn->query($sql);
+$sql = "INSERT INTO office (userid,fname,mname,lname,address,email,post,balance) VALUES ('$maxuserid','$fname','$mname','$lname','$address','$email','$post',0)";
+$conn->query($sql);
+    $_SESSION['added']="office added with USER ID :".$maxuserid." default password password";
     $_SESSION['add']=1;
     header("Location: tab-office.php");
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
+
+
+
+
+
+
 ?>

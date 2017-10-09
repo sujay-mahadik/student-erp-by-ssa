@@ -24,12 +24,22 @@ $userid = $_SESSION['id'];
 $admininfo="SELECT * FROM admin WHERE userid = '$userid'";
 $admininfoquery =  $conn->query($admininfo);
 $row = mysqli_fetch_array($admininfoquery);
+$_SESSION['username']=$row['fname']." ".$row['mname']." ".$row['lname'];
+    $_SESSION['fname']=$row['fname'];
+    $_SESSION['mname']=$row['mname'];
+    $_SESSION['lname']=$row['lname'];
+    $_SESSION['email']=$row['email'];
+    $_SESSION['address']=$row['address'];
+    $_SESSION['image']=$row['image'];
+    //echo $row['image'];
+
 ?>
 <!DOCTYPE html>
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/admin-index.css">
+  <link rel="stylesheet" href="css/student-index.css">
   <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
   <link rel="shortcut icon" href="images/sis-favicon.ico" type="image/x-icon">
   <title>Welcome Admin</title>
@@ -66,6 +76,7 @@ $row = mysqli_fetch_array($admininfoquery);
             <li>
               <b><u>Personal Details</u></b>
             </li>
+            <br>
             <li>
               <b>Name:</b> <?php echo $row['fname']." ".$row['mname']." ".$row['lname']; ?>
             </li>
@@ -81,6 +92,7 @@ $row = mysqli_fetch_array($admininfoquery);
             <br>
           </div>
         </div>
+
         <div class="tabs">
           <div class="tabs">
             <div id="tab-click" class="tabss blue student-icon">
@@ -114,6 +126,14 @@ $row = mysqli_fetch_array($admininfoquery);
       </div>
       <div class="container-tabs">
         <div class="tabs">
+        <div class="updateprofile ">
+        <br>
+                    <a href="update-profile-admin.php">Edit Profile</a>
+                </div>
+                <div class="updatepassword">
+                <br>
+                    <a href="change-password-admin.php">Change Password</a>
+                </div>
         </div>
         <div class="tabs">
           <div id="tab-click" class="tabss orange librarian-icon">

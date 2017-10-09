@@ -2,7 +2,7 @@
 include_once 'includes/db_connect.php';
 session_start();
 
-if (!isset($_SESSION['asi'])){
+if (!isset($_SESSION['ati'])){
     header("Location: login-index.php");
 }
 $cpass=sha1($_POST['cpass']);
@@ -16,22 +16,22 @@ if($pass == $cpass)
     //echo "herr";
     if($newpass==$newpassc)
     {
-        $sql = "call updatepassword('$newpass','$userid')"  ;
-            if ($conn->query($sql) ===  TRUE) {
+        $sql = "call updatepassword('$newpass','$userid')" ;
+            if ($conn->query($sql) === TRUE) {
                 //echo "successfully ";
                 $_SESSION['passmsg']="Password Updated Successfully";
-               header("Location: change-password.php");
+               header("Location: change-password-teacher.php");
             }
     }
     else
     {
         $_SESSION['passmsg']="New Passwords don't match";
-header("Location: change-password.php");    }
+header("Location: change-password-teacher.php");    }
 }
 
  else {
     $_SESSION['passmsg']="Invalid Current Password";
-    header("Location: change-password.php");
+    header("Location: change-password-teacher.php");
 }
 
 
