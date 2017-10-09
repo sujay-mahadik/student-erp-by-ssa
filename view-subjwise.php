@@ -2,7 +2,7 @@
 include_once"includes/db_connect.php";
 session_start();
 if (!isset($_SESSION['ati'])){
-    header("Location: login-index.php");
+  header("Location: login-index.php");
 }
 if(isset($_GET["table"]) && isset($_GET["id"]))
 {
@@ -48,7 +48,7 @@ if(isset($_GET["table"]) && isset($_GET["id"]))
         ?>
       </div>
       <div class="home-button">
-        <a href="student-index.php">Home</a>
+        <a href="teacher-index.php">Home</a>
       </div>
 
     </div>

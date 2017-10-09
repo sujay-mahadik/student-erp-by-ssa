@@ -52,8 +52,8 @@ if (!isset($_SESSION['ati'])){
           </select>
           <select name="dept" class="field-select-divided dropdown-button" required="required">
             <option value="">--select department--</option>
-            <option value="civil">Civil</option>
-            <option value="computer">Computer</option>
+            
+            
             <option value="it">IT</option>
             <option value="entc">ENTC</option>
             <option value="mechanical">Mechanical</option>

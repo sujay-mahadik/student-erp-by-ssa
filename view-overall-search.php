@@ -109,7 +109,7 @@ $_SESSION['tablemrk']=$cyear.$dept."am";
               <td class="row-name"><?php echo $row['fname']." ".$row['mname']." ".$row['lname']; ?></td>
 
               <td><?php echo number_format((float)$totalpercentage, 2, '.', '');?></td>
-              <td><a href="view-subjwise.php?table=<?php echo $tablecalctotal?>&id=<?php echo $idv?>&name=<?php echo $row['fname']?>" target="blank" >Click here</a></td>
+              <td><a href="view-subjwise.php?table=<?php echo $tablecalctotal?>&id=<?php echo $idv?>&name=<?php echo $row['fname']?>" target="_blank" >Click here</a></td>
             </tr>
             <?php
           }
