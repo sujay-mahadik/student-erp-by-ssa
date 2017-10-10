@@ -93,7 +93,7 @@ div.pullUp a.active:before {
     left: 90%;
 
     width: 350px;
-    height: 350px;
+    height: 380px;
 
     transform: translate(-90%, -50%);
 
@@ -198,7 +198,53 @@ button:hover {
     background-color: whitesmoke;
     box-shadow: 0 0 10px #78a538;
 }
+.home-button {
+    font-family: marketdeco;
+    font-size: 25px;
 
+    float: right;
+
+    padding-top: 5px;
+    padding-right: 25px;
+
+    cursor: pointer;
+    text-decoration: none;
+
+
+    color: #002f47;
+    background-image: url('../images/ic-home-b.png');
+    background-repeat: no-repeat;
+    background-position: 0 75%;
+    background-size: 30px;
+}
+
+.home-button a {
+    padding-left: 35px;
+    text-decoration: none;
+
+    color: #002f47;
+}
+.home-button :hover {
+    padding-top: 5px;
+
+    text-decoration: none;
+
+    color: black;
+    background-image: url('../images/ic-home-a.png');
+    background-repeat: no-repeat;
+    background-position: 0 75%;
+    background-size: 30px;
+}
+#forgotpassword {
+    size: 30px;
+    padding-left: 30px;
+    padding-top: 10px;
+
+}
+.return {
+    text-decoration: none;
+    margin-top: 10px;
+}
 .footer {
     position: fixed;
     bottom: 0;

@@ -91,13 +91,13 @@ $_SESSION['image']=$row['image'];
             </div>
             <div class="container-tabs">
                 <div class="tabs">
-                    <div class="updateprofile ">
-                        <br>
-                        <a href="update-profile-teacher.php">Edit Profile</a>
-                    </div>
-                    <div class="updatepassword">
-                        <br>
-                        <a href="change-password-teacher.php">Change Password</a>
+                    <div class="button-div" >
+                        <div class="updateprofile ">
+                            <a href="update-profile-teacher.php">Edit Profile</a>
+                        </div>
+                        <div class="updatepassword">
+                            <a href="change-password-teacher.php">Change Password</a>
+                        </div>
                     </div>
                 </div>
                 <div class="tabs">

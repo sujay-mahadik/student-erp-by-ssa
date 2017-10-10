@@ -41,7 +41,11 @@
                     }
                     ?>
                 </a>
-                <a href="forgotpassword.php">Forgot Password</a>
+
+                
+            </div>
+            <div class="forgotpassword" >
+                <a href="forgotpassword.php"><img src="images/ic-fp.png" id="forgotpassword"></a>
             </div>
         </form>
     </div>

@@ -62,9 +62,9 @@ $_SESSION['image']=$row['image'];
                 ?>
             </div>
         </div>
-    </div>
-    <div class="container-tabs">
-        <div class="tabs">
+        
+        <div class="container-tabs">
+            <div class="tabs">
                     <!--<div class="pic" style="background-image: url(<?php echo $_SESSION['profile_img'];?>); background-repeat: no-repeat;background-position: center; ">
                     </div>-->
                     <div class="tabinfo">
@@ -84,12 +84,6 @@ $_SESSION['image']=$row['image'];
                             Address: <?php echo $row['address']; ?>
                         </li>
                         <br>
-
-
-
-
-
-
                     </div>
                 </div>
                 <div class="tabs">
@@ -105,13 +99,17 @@ $_SESSION['image']=$row['image'];
             </div>
             <div class="container-tabs">
                 <div class="tabs">
-                    <div class="updateprofile ">
-                        <a href="update-profile-student.php">Edit Profile</a>
-                    </div>
-                    <div class="updatepassword">
+                    <div class="button-div">
 
-                        <a href="change-password.php">Change Password</a>
+                        <div class="updateprofile ">
+                            <a href="update-profile-student.php">Edit Profile</a>
+                        </div>
+                        <div class="updatepassword">
+
+                            <a href="change-password.php">Change Password</a>
+                        </div>
                     </div>
+
                 </div>
                 <div class="tabs">
                     <div id="tab-click" class="tabss orange fees-icon">
@@ -126,8 +124,9 @@ $_SESSION['image']=$row['image'];
             </div>
         </form>
     </div>
-    <div class="footer">
-        <p> Copyright 2017. All Rights Reserved. Developed by SSA</p>
-    </div>
+</div>
+<div class="footer">
+    <p> Copyright 2017. All Rights Reserved. Developed by SSA</p>
+</div>
 </body>
 </html>
