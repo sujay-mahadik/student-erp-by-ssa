@@ -1,7 +1,9 @@
 <?php
 include_once 'includes/db_connect.php';
 session_start();
- $_SESSION['passmsg']="";
+
+$_SESSION['passmsg']="";
+
 if (!isset($_SESSION['asi'])){
     header("Location: login-index.php");
 }
@@ -22,17 +24,20 @@ $_SESSION['otherfees']=$row['otherfees'];
 $_SESSION['totalfees']=$row['examfees']+$row['libraryfine']+$row['otherfees'];
 $_SESSION['image']=$row['image'];
 
+
+
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" href="css/student-index.css">
-  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+    <link rel="stylesheet" href="css/student-index.css">
 
-  <link rel="shortcut icon" href="images/sis-favicon.ico" type="image/x-icon">
-  <title>Student</title>
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+
+    <link rel="shortcut icon" href="images/sis-favicon.ico" type="image/x-icon">
+    <title>Student</title>
 </head>
 <body class="bg">
     <div class="topnav pullUp">
@@ -48,76 +53,77 @@ $_SESSION['image']=$row['image'];
             <div class="containertitle"><div class="profile-image" style="background-image: url('<?php echo $_SESSION['image'];?>'); background-repeat: no-repeat;background-position: center;">
             </div>WELCOME <?php echo $row['fname']; ?>
             <div class="logout-button">
-              <a href="?logout">Logout</a>
-              <?php
-              if(isset($_GET['logout'])) {
-                session_unset();
-                header("Location: login-index.php");
-            }
-            ?>
+                <a href="?logout">Logout</a>
+                <?php
+                if(isset($_GET['logout'])) {
+                    session_unset();
+                    header("Location: login-index.php");
+                }
+                ?>
+            </div>
         </div>
-    </div>
-    <div class="container-tabs">
-        <div class="tabs">
+        
+        <div class="container-tabs">
+            <div class="tabs">
                     <!--<div class="pic" style="background-image: url(<?php echo $_SESSION['profile_img'];?>); background-repeat: no-repeat;background-position: center; ">
                     </div>-->
                     <div class="tabinfo">
-                    <li>
-                    <b><u>Personal Details</u></b>
-                    </li>
-                    <br>
-                       <li>
-                        Name: <?php echo $row['fname']." ".$row['mname']." ".$row['lname']; ?>
-                    </li>
-                    <br>
-                    <li>
-                        Email: <?php echo $row['email']; ?>
-                    </li>
-                    <br>
-                    <li>
-                        Address: <?php echo $row['address']; ?>
-                    </li>
-                    <br>
-
-
-
-
-
-
+                        <li>
+                            <b><u>Personal Details</u></b>
+                        </li>
+                        <br>
+                        <li>
+                            Name: <?php echo $row['fname']." ".$row['mname']." ".$row['lname']; ?>
+                        </li>
+                        <br>
+                        <li>
+                            Email: <?php echo $row['email']; ?>
+                        </li>
+                        <br>
+                        <li>
+                            Address: <?php echo $row['address']; ?>
+                        </li>
+                        <br>
+                    </div>
+                </div>
+                <div class="tabs">
+                    <div id="tab-click" class="tabss blue tt-icon">
+                        <h1>My TimeTable</h1>
+                        <a href="#"><span></span></a>
+                    </div>
+                    <div id="tab-click" class="tabss red attend-icon">
+                        <h1>My Attendance</h1>
+                        <a href="view-attendance.php"><span></span></a>
+                    </div>
                 </div>
             </div>
-            <div class="tabs">
-                <div id="tab-click" class="tabss blue tt-icon">
-                    <h1>My TimeTable</h1>
-                    <a href="#"><span></span></a>
+            <div class="container-tabs">
+                <div class="tabs">
+                    <div class="button-div">
+
+                        <div class="updateprofile ">
+                            <a href="update-profile-student.php">Edit Profile</a>
+                        </div>
+                        <div class="updatepassword">
+
+                            <a href="change-password.php">Change Password</a>
+                        </div>
+                    </div>
+
                 </div>
-                <div id="tab-click" class="tabss red attend-icon">
-                    <h1>My Attendance</h1>
-                    <a href="view-attendance.php"><span></span></a>
-                </div>
-            </div>
-        </div>
-        <div class="container-tabs">
-            <div class="tabs">
-                <div class="updateprofile ">
-                    <a href="update-profile-student.php">Edit Profile</a>
-                </div>
-                <div class="updatepassword">
-                    <a href="change-password.php">Change Password</a>
-                </div>
-            </div>
-            <div class="tabs">
-                <div id="tab-click" class="tabss orange fees-icon">
-                    <h1>Fees: Rs.<?php echo $_SESSION['totalfees']; ?></h1>
-                    <a href="student-view-fees.php"><span></span></a>
-                </div>
-                <div id="tab-click" class="tabss green notes-icon">
-                    <h1>My Notes</h1>
-                    <a href="download-php.php"><span></span></a>
+                <div class="tabs">
+                    <div id="tab-click" class="tabss orange fees-icon">
+                        <h1>Fees: Rs.<?php echo $_SESSION['totalfees']; ?></h1>
+                        <a href="student-view-fees.php"><span></span></a>
+                    </div>
+                    <div id="tab-click" class="tabss green notes-icon">
+                        <h1>My Notes</h1>
+                        <a href="download-php.php"><span></span></a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
 </div>
 <div class="footer">
     <p> Copyright 2017. All Rights Reserved. Developed by SSA</p>

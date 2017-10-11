@@ -15,40 +15,42 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
- 	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="css/login-index.css">
-    <link rel="shortcut icon" href="images/sis-favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/login-index.css">
+  <link rel="shortcut icon" href="images/sis-favicon.ico" type="image/x-icon">
 
-	<title>Forgot Password</title>
+  <title>Forgot Password</title>
 </head>
 <body class="bg">
-	 <div class="topnav pullUp">
-        <a href="#">About</a>
-        <a href="#">Help</a>
-        <a href="developed.php">Developed By</a>
-    </div>
-    <div class="logincard-bck">
-        <!--Only For Login card Background-->
-    </div>
-    <div class="logincard">
-        <form action="forgotpassword-php.php" method="post" autocomplete="off">
-            <div class="container-login-title">Login
+  <div class="topnav pullUp">
+    <a href="#">About</a>
+    <a href="#">Help</a>
+    <a href="developed.php">Developed By</a>
+</div>
+<div class="logincard-bck">
+    <!--Only For Login card Background-->
+</div>
+<div class="logincard">
+    <form action="forgotpassword-php.php" method="post" autocomplete="off">
+        <div class="container-login-title">Login
+            <div class="home-button">
+                <a href="login-index.php"></a>
             </div>
-            <div class="container-input-fields">
-                <input type="text" placeholder="User ID" onfocus="this.placeholder = 'User ID'" onblur="this.placeholder = 'User ID'" name="uname" required="required">
+        </div>
+        <div class="container-input-fields">
+            <input type="text" placeholder="User ID" onfocus="this.placeholder = 'User ID'" onblur="this.placeholder = 'User ID'" name="uname" required="required">
 
-                <br>
+            <br>
 
-                <?php echo $_SESSION['msg']?>
+            <?php echo $_SESSION['msg']?>
 
-                                <div class="submit">
+            <div class="submit">
                 <button type="submit">Submit</button>
-                <a href="login-index.php">Return to login page</a>
-                </div>
+            </div>
 
-                </div>
+        </div>
 
 
-</body>
-</html>
+    </body>
+    </html>

@@ -15,7 +15,7 @@ $address=$_POST['address'];
 $email=$_POST['email'];
 
 $tmp_name =$_FILES['myfile']['tmp_name'];
-$name = $_SESSION['id'].".jpg";
+$name = $_SESSION['id'].".png";
 $Location = "profile-image/".$name;
 move_uploaded_file($tmp_name, $Location);
 $photo=$Location;

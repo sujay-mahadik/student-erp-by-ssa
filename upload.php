@@ -11,7 +11,7 @@ if (!isset($_SESSION['ati'])){
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/tab.css">
   <link rel="shortcut icon" href="images/sis-favicon.ico" type="image/x-icon">
-  <title>Welcome Admin</title>
+  <title>Upload notes</title>
 </head>
 <body class="bg">
   <div class="topnav pullUp">
@@ -39,7 +39,7 @@ if (!isset($_SESSION['ati'])){
       </div>
 
     </div>
-     <form action="upload-php.php" method="post" enctype="multipart/form-data">
+    <form action="upload-php.php" method="post" enctype="multipart/form-data">
       <ul class="form-style">
 
         <?php echo $_SESSION['fuploadedmsg']?>
@@ -83,9 +83,9 @@ if (!isset($_SESSION['ati'])){
 
       </ul>
     </form>
-    </div>
-    <div class="footer">
-      <p> Copyright 2017. All Rights Reserved. Developed by SSA</p>
-    </div>
-  </body>
-  </html>
+  </div>
+  <div class="footer">
+    <p> Copyright 2017. All Rights Reserved. Developed by SSA</p>
+  </div>
+</body>
+</html>

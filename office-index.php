@@ -19,7 +19,7 @@ $row = mysqli_fetch_array($admininfoquery);
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
 
     <link rel="shortcut icon" href="images/sis-favicon.ico" type="image/x-icon">
-    <title>Teacher</title>
+    <title>Office - SIS</title>
 </head>
 <body class="bg">
     <div class="topnav pullUp">
@@ -84,13 +84,21 @@ $row = mysqli_fetch_array($admininfoquery);
     </div>
     <div class="container-tabs">
         <div class="tabs">
+            <div class="button-div" >
+                <div class="updateprofile ">
+                    <a href="update-profile-teacher.php">Edit Profile</a>
+                </div>
+                <div class="updatepassword">
+                    <a href="change-password-teacher.php">Change Password</a>
+                </div>
+            </div>
         </div>
         <div class="tabs">
-            <div id="tab-click" class="tabss orange marks-icon">
+            <div id="tab-click" class="tabss orange notallowed">
                 <h1>*For further use*</h1>
                 <a href="#"><span></span></a>
             </div>
-            <div id="tab-click" class="tabss green notes-icon">
+            <div id="tab-click" class="tabss green notallowed">
                 <h1>*For further use*</h1>
                 <a href="#"><span></span></a>
             </div>

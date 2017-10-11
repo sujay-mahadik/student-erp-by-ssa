@@ -2,15 +2,15 @@
 include_once"includes/db_connect.php";
 session_start();
 if (!isset($_SESSION['ati'])){
-    header("Location: login-index.php");
+  header("Location: login-index.php");
 }
 if(isset($_GET["table"]) && isset($_GET["id"]))
-    {
-        $tabledisplay = $_GET["table"];
-        $id = $_GET["id"];
-        $name=$_GET["name"];
+{
+  $tabledisplay = $_GET["table"];
+  $id = $_GET["id"];
+  $name=$_GET["name"];
 
-    }
+}
 
 ?>
 
@@ -43,12 +43,12 @@ if(isset($_GET["table"]) && isset($_GET["id"]))
         <?php
         if(isset($_GET['logout'])) {
           session_unset();
-          header("Location: login-index.php");
+          header("Location: teacher-index.php");
         }
         ?>
       </div>
       <div class="home-button">
-        <a href="student-index.php">Home</a>
+        <a href="teacher-index.php">Home</a>
       </div>
 
     </div>
@@ -60,8 +60,8 @@ if(isset($_GET["table"]) && isset($_GET["id"]))
 
     $allstudentresult = $conn->query("SELECT * FROM `{$tabledisplay}` where userid='$id'");
     $row=mysqli_fetch_array($allstudentresult,MYSQLI_ASSOC);
-    $idd=99;
-    $allstudentresult1 = $conn->query("SELECT * FROM `{$tabledisplay}` where userid='$idd'");
+    $idd=substr($id, 0,3);
+    $allstudentresult1 = $conn->query("SELECT * FROM attendance where userid='$idd'");
     $row1=mysqli_fetch_array($allstudentresult1,MYSQLI_ASSOC);
 
     ?>
