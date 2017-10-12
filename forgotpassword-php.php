@@ -96,7 +96,7 @@ $mail = new PHPMailer;
 				$mail->Host = 'smtp.gmail.com';                    // Specify main and backup SMTP servers
 				$mail->SMTPAuth = true;                            // Enable SMTP authentication
 				$mail->Username = 'erpbyssa@gmail.com';          // SMTP username
-				$mail->Password = '123erp@ssa'; // SMTP password add ur mailing id password
+				$mail->Password = 'erp@ssa123'; // SMTP password add ur mailing id password
 				$mail->SMTPSecure = 'tls';                         // Enable TLS encryption, `ssl` also accepted
 				$mail->Port = 587;                                 // TCP port to connect to
 

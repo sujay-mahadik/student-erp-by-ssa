@@ -126,15 +126,18 @@ $_SESSION['username']=$row['fname']." ".$row['mname']." ".$row['lname'];
       </div>
       <div class="container-tabs">
         <div class="tabs">
-        <div class="updateprofile ">
-        <br>
-                    <a href="update-profile-admin.php">Edit Profile</a>
+                    <div class="button-div">
+
+                        <div class="updateprofile ">
+                            <a href="update-profile-admin.php">Edit Profile</a>
+                        </div>
+                        <div class="updatepassword">
+
+                            <a href="change-password-admin.php">Change Password</a>
+                        </div>
+                    </div>
+
                 </div>
-                <div class="updatepassword">
-                <br>
-                    <a href="change-password-admin.php">Change Password</a>
-                </div>
-        </div>
         <div class="tabs">
           <div id="tab-click" class="tabss orange librarian-icon">
             <h1><?php echo $acount; ?></h1>

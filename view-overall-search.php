@@ -90,7 +90,8 @@ $_SESSION['tablemrk']=$cyear.$dept."am";
         <tbody>
           <?php
           $tablecalctotal=$_SESSION['tablemrk'];
-          $totalquery = $conn->query("SELECT * FROM `{$tablecalctotal}` where userid=99 ");
+          $idd=$cyear.$deptid;
+          $totalquery = $conn->query("SELECT * FROM attendance where userid='$idd' ");
           $rowtotal=mysqli_fetch_array($totalquery,MYSQLI_ASSOC);
           $totallecs=$rowtotal['subj1']+$rowtotal['subj2']+$rowtotal['subj3']+$rowtotal['subj4']+$rowtotal['subj5'];
           $tabledisplay=$_SESSION['tabledsp'];

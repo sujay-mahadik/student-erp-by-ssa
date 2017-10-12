@@ -60,8 +60,8 @@ if(isset($_GET["table"]) && isset($_GET["id"]))
 
     $allstudentresult = $conn->query("SELECT * FROM `{$tabledisplay}` where userid='$id'");
     $row=mysqli_fetch_array($allstudentresult,MYSQLI_ASSOC);
-    $idd=99;
-    $allstudentresult1 = $conn->query("SELECT * FROM `{$tabledisplay}` where userid='$idd'");
+    $idd=substr($id, 0,3);
+    $allstudentresult1 = $conn->query("SELECT * FROM attendance where userid='$idd'");
     $row1=mysqli_fetch_array($allstudentresult1,MYSQLI_ASSOC);
 
     ?>

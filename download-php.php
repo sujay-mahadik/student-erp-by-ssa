@@ -43,7 +43,8 @@ if (!isset($_SESSION['asi']))
 
     <form >
       <ul class="form-style">
-
+        <br>
+        <br>
         <?php
         include_once 'includes/db_connect.php';
         session_start();
@@ -61,7 +62,7 @@ if (!isset($_SESSION['asi']))
           $name = $row['name'];
           $loc  = $row['loc'];
 
-          echo "   " . $name ."      <a href='download.php?dow=$loc'>Download</a><br><br>";
+          echo "                               " . $name ."                                                         <a href='download.php?dow=$loc'>Download</a><br><br>";
 
         }
 

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 07, 2017 at 05:37 PM
+-- Generation Time: Oct 07, 2017 at 04:59 PM
 -- Server version: 5.7.19-0ubuntu0.16.04.1
 -- PHP Version: 7.0.22-0ubuntu0.16.04.1
 
@@ -36,6 +36,13 @@ CREATE TABLE `admin` (
   `image` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`userid`, `fname`, `mname`, `lname`, `address`, `email`, `image`) VALUES
+(100, 'Shivansh', 'Vijay', 'Nathani', 'Pimpri Pune', 'nathanishivansh07@gmail.com', 'profile-image/default.png');
+
 -- --------------------------------------------------------
 
 --
@@ -52,6 +59,13 @@ CREATE TABLE `teacher` (
   `dept` varchar(50) NOT NULL,
   `image` varchar(1024) DEFAULT 'profile-image/default.png'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `teacher`
+--
+
+INSERT INTO `teacher` (`userid`, `fname`, `mname`, `lname`, `address`, `email`, `dept`, `image`) VALUES
+(201, 'asdf', '', '', 'pune', 'nathanishivansh07@gmail.com', 'it', 'profile-image/default.png');
 
 --
 -- Indexes for dumped tables
