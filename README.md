@@ -4,7 +4,8 @@
     -Teacher
     -Office
     -Student
-
+## Basic Login UI
+![login UI](https://github.com/sujay-mahadik/student-erp-by-ssa/blob/master/demo/Peek%202017-09-03%2015-17.gif)
 ## Roles of Admin
 
     Admin can Manage All Lectures/Subject(add,view,delete,update)
